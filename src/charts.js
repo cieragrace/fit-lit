@@ -1,15 +1,13 @@
 import Chart from 'chart.js/auto';
-// import displayStepGoal from './scripts'
 
-// Steps
-// var yValues = displayStepGoal();
-var barColors = [
-  "#b91d47",
-  "#00aba9",
-];
-const steps = document.getElementById('stepGoal');
+//Global Variables
+const barColors = ["orange", "#00aba9",];
+const xValues = ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'];
+const labels = ['All-Time Avg. Sleep Quality (1-5)', 'All-Time Avg. Sleep Duration'];
+
+//Global Functions
 function makeStepCharts(yValues) {
-  new Chart(steps, {
+  new Chart('stepGoal', {
     type: "doughnut",
     data: {
       labels: ["Your Steps", "Steps Remaining"],
@@ -27,9 +25,8 @@ function makeStepCharts(yValues) {
   });
 }
 
-const dailyHydration = document.getElementById('dailyHydration')
 function makeDailyH20Charts(yValues) {
-  new Chart(dailyHydration, {
+  new Chart('dailyHydration', {
     type: "doughnut",
     data: {
       labels: ["Water Today", "H20 Goal"],
@@ -47,9 +44,8 @@ function makeDailyH20Charts(yValues) {
   });
 }
 
-const dailySleep = document.getElementById('dailySleep')
 function dailySleepChart(yValues) {
-  new Chart(dailySleep, {
+  new Chart('dailySleep', {
     type: "doughnut",
     data: {
       labels: ["Hours Slept"],
@@ -67,9 +63,8 @@ function dailySleepChart(yValues) {
   })
 }
 
-const dailySleepQuality = document.getElementById('dailySleepQuality')
 function dailySleepQualityChart(yValues) {
-  new Chart(dailySleepQuality, {
+  new Chart('dailySleepQuality', {
     type: "doughnut",
     data: {
       labels: ["Quality of Sleep"],
@@ -87,18 +82,15 @@ function dailySleepQualityChart(yValues) {
   })
 }
 
-var xValues = ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'];
-
-const sleepHistory = document.getElementById('sleepHistory')
 function sleepHistoryBarGraph(userSleepHistory, userQualityHistory) {
-  new Chart("sleepHistory", {
+  new Chart('sleepHistory', {
     type: "line",
     data: {
       labels: xValues,
       datasets: [{
         label: 'Hours Slept',
         data: userSleepHistory,
-        borderColor: "red",
+        borderColor: "orange",
         fill: false
       },
       {
@@ -114,11 +106,8 @@ function sleepHistoryBarGraph(userSleepHistory, userQualityHistory) {
   });
 }
 
-var xValues = ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'];
-
-const hydrationHistory = document.getElementById('weeklyHydration')
 function hydrationBarGraph(hydrationByDay) {
-  new Chart("weeklyHydration", {
+  new Chart('weeklyHydration', {
     type: "line",
     data: {
       labels: xValues,
@@ -135,11 +124,8 @@ function hydrationBarGraph(hydrationByDay) {
   });
 }
 
-const labels = ['All-Time Avg. Sleep Quality (1-5)', 'All-Time Avg. Sleep Duration']
-
-let allTimeSleepData = document.getElementById('allTimeSleepHistory')
 function allTimeSleepQuality(allTimeSleep) {
-  new Chart("allTimeSleepHistory", {
+  new Chart('allTimeSleepHistory', {
     type: "bar",
     data: {
       labels: labels,
@@ -148,7 +134,7 @@ function allTimeSleepQuality(allTimeSleep) {
         data: allTimeSleep,
         backgroundColor: [
           'blue',
-          'red'
+          'orange'
         ],
         borderColor: [
           'rgb(255, 99, 132)',
@@ -160,7 +146,15 @@ function allTimeSleepQuality(allTimeSleep) {
   })
 }
 
-function loadCharts(stepYValues, dailyH2OYValues, sleepYValues, qualityYValues, userSleepHistory, userQualityHistory, hydrationByDay, allTimeSleep) {
+function loadCharts(
+  stepYValues,
+  dailyH2OYValues,
+  sleepYValues,
+  qualityYValues,
+  userSleepHistory,
+  userQualityHistory,
+  hydrationByDay,
+  allTimeSleep) {
   makeStepCharts(stepYValues)
   makeDailyH20Charts(dailyH2OYValues)
   dailySleepChart(sleepYValues)
@@ -169,4 +163,5 @@ function loadCharts(stepYValues, dailyH2OYValues, sleepYValues, qualityYValues, 
   hydrationBarGraph(hydrationByDay)
   allTimeSleepQuality(allTimeSleep)
 }
+
 export default loadCharts;
