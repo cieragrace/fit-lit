@@ -1,9 +1,11 @@
 body,
 html {
-  background-image: linear-gradient(to top, aliceblue 0%, lightblue 90%, blue 100%);
-  background-repeat: no-repeat;
-  height: 100%;
+  background-image: linear-gradient(to bottom, lightblue 0%, skyblue 50%, navy 100%);
+  /* background-size: 100vh; */
+  /* height: 100vh; */
   font-size: 7px;
+  font-family: Verdana, Tahoma, sans-serif;
+  margin-left: 10px;
 }
 
 .grid-container {
@@ -16,7 +18,7 @@ html {
 }
 
 .grid-item {
-  background-color: bisque;
+  background-color: #eef2f1;
   color: black;
   border: 2px solid #2c3e50;
   border-radius: 25px;
@@ -25,6 +27,37 @@ html {
   align-items: center;
   flex-direction: column;
   justify-content: flex-start;
+  padding: 20px;
+  max-width: 350px;;
+}
+
+h1 {
+  font-size: xx-large;
+}
+
+h2 {
+  font-size: x-large;
+}
+
+ul {
+  list-style-type: circle;
+  font-size: medium;
+}
+
+canvas {
+  padding: 10px;
+  margin: 30px;
+}
+
+.chart-placement {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.daily-sleep {
+  display: flex;
+  flex-direction: column;
 }
 
 .zero {
@@ -36,12 +69,14 @@ html {
   grid-row: 1 / 3;
 }
 
-.four {
+.three {
   grid-column: 2 / 4;
   grid-row: 2;
+  max-width: 825px;
 }
 
 #stepGoal {
   height: 20px;
   width: 20px;
 }
+
