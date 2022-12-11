@@ -1,9 +1,10 @@
 body,
 html {
-  background-image: linear-gradient(to top, aliceblue 0%, lightblue 90%, blue 100%);
+  background-image: linear-gradient(to bottom, lightblue 0%, skyblue 50%, navy 100%);
   background-repeat: no-repeat;
-  height: 100%;
+  height: 100vh;
   font-size: 7px;
+  font-family: Verdana, Tahoma, sans-serif;
 }
 
 .grid-container {
@@ -16,7 +17,7 @@ html {
 }
 
 .grid-item {
-  background-color: bisque;
+  background-color: #eef2f1;
   color: black;
   border: 2px solid #2c3e50;
   border-radius: 25px;
@@ -25,6 +26,14 @@ html {
   align-items: center;
   flex-direction: column;
   justify-content: flex-start;
+}
+
+h1 {
+  font-size: xx-large;
+}
+
+h2 {
+  font-size: x-large;
 }
 
 .zero {
