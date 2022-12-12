@@ -46,7 +46,8 @@ ul {
 }
 
 li {
-  margin-top: 20px;
+  margin-top: 25px;
+  font-size: medium;
 }
 
 canvas {
