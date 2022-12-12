@@ -70,10 +70,10 @@ class User {
       .filter(user => user.date === date)
       .reduce((acc, curr) => {
         if (curr.userID === this.userData.id) {
-          acc = curr.hoursSlept;
+          acc = curr.hoursSlept
         }
-        return acc;
-      }, 0);
+        return acc
+      }, 0)
   }
 
   sleepQualityOnSpecificDate(date) {
@@ -81,9 +81,9 @@ class User {
       .filter(user => user.date === date)
       .reduce((acc, curr) => {
         if (curr.userID === this.userData.id) {
-          acc = curr.sleepQuality;
+          acc = curr.sleepQuality
         }
-        return acc;
+        return acc
       }, 0);
   }
 
@@ -92,9 +92,9 @@ class User {
       .filter(user => user.userID === this.userData.id)
       .slice(-7)
       .map(user => {
-        let both = {};
-        both[user.date] = user.hoursSlept;
-        return both;
+        let both = {}
+        both[user.date] = user.hoursSlept
+        return both
       });
   }
 
@@ -103,19 +103,19 @@ class User {
       .filter(user => user.userID === this.userData.id)
       .slice(-7)
       .map(user => {
-        let both = {};
-        both[user.date] = user.sleepQuality;
-        return both;
+        let both = {}
+        both[user.date] = user.sleepQuality
+        return both
       });
   }
 
   averageSleepQuality() {
     let totalQuality = this.sleepData.sleepData.reduce((acc, user) => {
-      acc += user.sleepQuality;
-      return acc;
+      acc += user.sleepQuality
+      return acc
     }, 0)
-    let averageQuality = totalQuality / this.sleepData.sleepData.length;
-    return Number(averageQuality.toFixed(2));
+    let averageQuality = totalQuality / this.sleepData.sleepData.length
+    return Number(averageQuality.toFixed(2))
   }
 }
 
