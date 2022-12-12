@@ -1,12 +1,12 @@
 class User {
   constructor(userData, sleepData, hydrationData) {
-    this.userData = userData;
-    this.sleepData = sleepData;
-    this.hydrationData = hydrationData;
+    this.userData = userData
+    this.sleepData = sleepData
+    this.hydrationData = hydrationData
   }
 
   getFirstName() {
-    return this.userData.name.split(' ')[0];
+    return this.userData.name.split(' ')[0]
   }
 
   getAvgDailyWater(userID) {
@@ -23,9 +23,9 @@ class User {
       .filter(user => user.date === date)
       .reduce((acc, curr) => {
         if (curr.userID === this.userData.id) {
-          acc = curr.numOunces;
+          acc = curr.numOunces
         }
-        return acc;
+        return acc
       }, 0);
   }
 
@@ -34,15 +34,15 @@ class User {
       .filter(user => user.userID === this.userData.id)
       .slice(-7)
       .map(user => {
-        let both = {};
+        let both = {}
         both[user.date] = user.numOunces;
-        return both;
+        return both
       });
   }
 
   // Sleep
   getAverageDailySleep() {
-    let specificUserSleepData = this.getUserSleepData();
+    let specificUserSleepData = this.getUserSleepData()
     let totalHours = specificUserSleepData.reduce((acc, user) => {
       acc += user.hoursSlept;
       return acc;
