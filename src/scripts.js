@@ -1,30 +1,30 @@
-import './css/styles.css';
-import { getAPIData } from './apiCalls';
-import User from '../src/User';
-import UserRepository from './UserRepository';
-import loadCharts from './charts';
+import './css/styles.css'
+import { getAPIData } from './apiCalls'
+import User from '../src/User'
+import UserRepository from './UserRepository'
+import loadCharts from './charts'
 
 // Global Variables
-let users;
-let sleep;
-let hydration;
-let currentUser;
+let users
+let sleep
+let hydration
+let currentUser
 
 //Query Selectors
-let activityTrackerTitle = document.querySelector('h1');
-let userInfoList = document.querySelector("#userInfoList");
+let activityTrackerTitle = document.querySelector('h1')
+let userInfoList = document.querySelector("#userInfoList")
 
 // Event Listeners
-window.addEventListener('load', getAllData);
+window.addEventListener('load', getAllData)
 
 //Event Handlers
 function getAllData() {
   Promise.all([getAPIData('users'), getAPIData('sleep'), getAPIData('hydration')])
     .then((data) => {
-      users = new UserRepository(data[0]);
-      sleep = data[1];
-      hydration = data[2];
-      loadPage();
+      users = new UserRepository(data[0])
+      sleep = data[1]
+      hydration = data[2]
+      loadPage()
     })
     .catch(err => console.log('To err is human', err))
 }
@@ -35,7 +35,7 @@ function displayUserInfo() {
   <li>${currentUser.userData.email}</li>
   <li>Stride Length: ${currentUser.userData.strideLength}</li>
   <li>Daily Step Goal: ${currentUser.userData.dailyStepGoal}</li>
-  <li>Friends: ${getUserFriends()}</li>`;
+  <li>Friends: ${getUserFriends()}</li>`
 }
 
 function displayWelcomeName() {
