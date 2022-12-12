@@ -60,7 +60,7 @@ function dailySleepChart(yValues) {
         text: "Today"
       }
     }
-  })
+  });
 }
 
 function dailySleepQualityChart(yValues) {
@@ -79,7 +79,7 @@ function dailySleepQualityChart(yValues) {
         text: "Today"
       }
     }
-  })
+  });
 }
 
 function sleepHistoryBarGraph(userSleepHistory, userQualityHistory) {
@@ -143,7 +143,7 @@ function allTimeSleepQuality(allTimeSleep) {
         borderWidth: 1
       }]
     }
-  })
+  });
 }
 
 function loadCharts(

@@ -35,7 +35,7 @@ function displayUserInfo() {
   <li>${currentUser.userData.email}</li>
   <li>Stride Length: ${currentUser.userData.strideLength}</li>
   <li>Daily Step Goal: ${currentUser.userData.dailyStepGoal}</li>
-  <li>Friends: ${getUserFriends()}</li>`
+  <li>Friends: ${getUserFriends()}</li>`;
 }
 
 function displayWelcomeName() {
@@ -56,7 +56,7 @@ function getUser(sleep, hydration) {
 function getUserFriends() {
   return currentUser.userData.friends
     .map(friend => users.getData(friend).name)
-    .join(', ')
+    .join(', ');
 }
 
 function displayWater() {
@@ -77,19 +77,19 @@ function displaySleepQuality() {
 function displayLast7DaysSleep() {
   return currentUser
     .givenWeekSleepDataByDay()
-    .map(current => Object.values(current)[0])
+    .map(current => Object.values(current)[0]);
 }
 
 function displayLast7DaysQuality() {
   return currentUser
     .givenWeeksSleepQualityByDay()
-    .map(current => Object.values(current)[0])
+    .map(current => Object.values(current)[0]);
 }
 
 function displayLast7DaysHydration() {
   return currentUser
     .getWeeklyConsumption()
-    .map(current => Object.values(current)[0])
+    .map(current => Object.values(current)[0]);
 }
 
 function displayAllTimeSleepData() {
