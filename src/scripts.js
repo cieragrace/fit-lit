@@ -56,7 +56,7 @@ function getUser(sleep, hydration) {
 function getUserFriends() {
   return currentUser.userData.friends
     .map(friend => users.getData(friend).name)
-    .join(', ')
+    .join(', ');
 }
 
 function displayWater() {
