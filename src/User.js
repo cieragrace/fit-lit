@@ -10,12 +10,12 @@ class User {
   }
 
   getAvgDailyWater(userID) {
-    return this.hydrationData.hydrationData
-      .filter(user => user.userID === userID)
-      .reduce((acc, curr) => {
-        acc += curr.numOunces;
-        return acc;
-      }, 0) / matchedIDS.length;
+    let matchedIDS = this.hydrationData.hydrationData.filter(user => user.userID === userID)
+    let avg = matchedIDS.reduce((acc, curr) => {
+      acc += curr.numOunces
+      return acc
+    }, 0)
+    return avg / matchedIDS.length
   }
 
   getWaterPerDay(date) {
