@@ -2,7 +2,7 @@
 
 ### Abstract:
 [//]: <> (Briefly describe what you built and its features. What problem is the app solving? How does this application solve that problem?)
-Here we built a fitness dashboard to display a random users info. This includes their hydration, sleep, and step activity along with their personal info. We have used FETCH to pull user data from the internet, rather than having hard coded data. Our app is dyslexic and color blind friendly.
+Here we built a fitness dashboard to display a random user's info. This includes their hydration, sleep, and step activity along with their personal info. We have used FETCH to pull user data from the internet, rather than having hard coded data. Our app is dyslexic and color blind friendly.
 
 ### Installation Instructions:
 [//]: <> (What steps does a person have to take to get your app cloned down and running?)
@@ -17,7 +17,7 @@ Here we built a fitness dashboard to display a random users info. This includes 
 
 ### Context:
 [//]: <> (Give some context for the project here. How long did you have to work on it? How far into the Turing program are you?)
-We were given approximately 11 days to work on this project.  We spent about 50 hours from start to finish.  We are on Week 3 of Mod 2. 
+We were given approximately 11 days to work on this project.  We spent about 55 hours from start to finish.  We are on Week 3 of Mod 2. 
 
 ### Contributors: 
 [//]: <> (Who worked on this application? Link to their GitHubs.)
@@ -53,5 +53,5 @@ We were given approximately 11 days to work on this project.  We spent about 50 
 - We navigated working together and adapted to different team enironments (splitting off into pairs, working all together, etc...)
 
 #### Challenges 
-- We utilised our mentors/peers help when we were unable to come up with a solution
+- We utilised help from our mentors and peers when we were unable to come up with a solution
 - We all have different schedules, and had to adjust to family/friends/health
