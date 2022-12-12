@@ -1,7 +1,7 @@
 import Chart from 'chart.js/auto';
 
 //Global Variables
-const barColors = ["orange", "#00aba9",];
+const barColors = ["orange", "navy",];
 const xValues = ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'];
 const labels = ['All-Time Avg. Sleep Quality (1-5)', 'All-Time Avg. Sleep Duration'];
 
@@ -114,7 +114,7 @@ function hydrationBarGraph(hydrationByDay) {
       datasets: [{
         label: 'Hydration by Day',
         data: hydrationByDay,
-        borderColor: "blue",
+        borderColor: "navy",
         fill: false
       },]
     },
@@ -133,7 +133,7 @@ function allTimeSleepQuality(allTimeSleep) {
         label: 'Sleep History',
         data: allTimeSleep,
         backgroundColor: [
-          'blue',
+          'navy',
           'orange'
         ],
         borderColor: [
