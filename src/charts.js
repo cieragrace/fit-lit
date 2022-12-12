@@ -143,7 +143,7 @@ function allTimeSleepQuality(allTimeSleep) {
         borderWidth: 1
       }]
     }
-  })
+  });
 }
 
 function loadCharts(
