@@ -1,5 +1,4 @@
 import { expect } from 'chai';
-import User from '../src/User';
 import UserRepository from '../src/UserRepository';
 
 describe('UserRepository', () => {
@@ -52,21 +51,18 @@ describe('UserRepository', () => {
         }]
     }
 
-    userRepository = new UserRepository(users)
+    userRepository = new UserRepository(users);
   })
 
   it('should be a function', function () {
-
     expect(UserRepository).to.be.a('function');
   });
 
   it('should instantiate a new user repository', function () {
-
     expect(userRepository.data).to.deep.equal(users);
   })
 
   it('should take in user data', function () {
-
     expect(userRepository.data.userData[0]).to.deep.equal(
       {
         "id": 1,
@@ -80,12 +76,11 @@ describe('UserRepository', () => {
           4,
           8
         ]
-      })
+      });
 
   })
 
   it('should supply user data when given id', function () {
-
     expect(userRepository.getData(userRepository.data.userData[1].id)).to.deep.equal({
       id: 2,
       name: "Jarvis Considine",
@@ -99,12 +94,11 @@ describe('UserRepository', () => {
         24,
         19
       ]
-    })
+    });
 
   })
 
   it('should give the average step goal of all users', function () {
-
-    expect(userRepository.stepGoalAverage()).to.equal(6666)
+    expect(userRepository.stepGoalAverage()).to.equal(6666);
   })
 });
