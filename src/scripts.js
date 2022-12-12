@@ -83,7 +83,7 @@ function displayLast7DaysSleep() {
 function displayLast7DaysQuality() {
   return currentUser
     .givenWeeksSleepQualityByDay()
-    .map(current => Object.values(current)[0])
+    .map(current => Object.values(current)[0]);
 }
 
 function displayLast7DaysHydration() {
