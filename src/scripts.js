@@ -35,7 +35,7 @@ function displayUserInfo() {
   <li>${currentUser.userData.email}</li>
   <li>Stride Length: ${currentUser.userData.strideLength}</li>
   <li>Daily Step Goal: ${currentUser.userData.dailyStepGoal}</li>
-  <li>Friends: ${getUserFriends()}</li>`
+  <li>Friends: ${getUserFriends()}</li>`;
 }
 
 function displayWelcomeName() {
