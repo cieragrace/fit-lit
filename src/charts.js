@@ -1,9 +1,9 @@
-import Chart from 'chart.js/auto';
+import Chart from 'chart.js/auto'
 
 //Global Variables
-const barColors = ["orange", "navy",];
-const xValues = ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'];
-const labels = ['All-Time Avg. Sleep Quality (1-5)', 'All-Time Avg. Sleep Duration'];
+const barColors = ["orange", "navy",]
+const xValues = ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7']
+const labels = ['All-Time Avg. Sleep Quality (1-5)', 'All-Time Avg. Sleep Duration']
 
 //Global Functions
 function makeStepCharts(yValues) {
@@ -22,7 +22,7 @@ function makeStepCharts(yValues) {
         text: "Today"
       }
     }
-  });
+  })
 }
 
 function makeDailyH20Charts(yValues) {
@@ -41,7 +41,7 @@ function makeDailyH20Charts(yValues) {
         text: "Today"
       }
     }
-  });
+  })
 }
 
 function dailySleepChart(yValues) {
@@ -60,7 +60,7 @@ function dailySleepChart(yValues) {
         text: "Today"
       }
     }
-  });
+  })
 }
 
 function dailySleepQualityChart(yValues) {
@@ -79,7 +79,7 @@ function dailySleepQualityChart(yValues) {
         text: "Today"
       }
     }
-  });
+  })
 }
 
 function sleepHistoryBarGraph(userSleepHistory, userQualityHistory) {
@@ -103,7 +103,7 @@ function sleepHistoryBarGraph(userSleepHistory, userQualityHistory) {
     options: {
       legend: { display: false }
     }
-  });
+  })
 }
 
 function hydrationBarGraph(hydrationByDay) {
@@ -121,7 +121,7 @@ function hydrationBarGraph(hydrationByDay) {
     options: {
       legend: { display: false }
     }
-  });
+  })
 }
 
 function allTimeSleepQuality(allTimeSleep) {
@@ -143,7 +143,7 @@ function allTimeSleepQuality(allTimeSleep) {
         borderWidth: 1
       }]
     }
-  });
+  })
 }
 
 function loadCharts(
