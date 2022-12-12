@@ -77,7 +77,7 @@ function displaySleepQuality() {
 function displayLast7DaysSleep() {
   return currentUser
     .givenWeekSleepDataByDay()
-    .map(current => Object.values(current)[0])
+    .map(current => Object.values(current)[0]);
 }
 
 function displayLast7DaysQuality() {
