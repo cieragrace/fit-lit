@@ -13,8 +13,7 @@ Here we built a fitness dashboard to display a random users info. This includes 
 5. Do not run `npm audit fix --force`.  This will update to the latest version of packages.  We need to be using `webpack-dev-server@3.11.2` which is not the latest version. If you start to run into Webpack errors, first check that all group members are using the correct version.  
 
 ### Preview of App:
-[//]: <> (Provide ONE gif or screenshot of your application - choose the "coolest" piece of functionality to show off.)
-![IdeaBox SS](https://user-images.githubusercontent.com/67208858/200420479-a7c3cd6c-da16-4ff5-8f36-1e14df3d3411.jpg)
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/113863021/207166142-586f35e1-3652-48da-9099-2bc4dd8fc98d.gif)
 
 ### Context:
 [//]: <> (Give some context for the project here. How long did you have to work on it? How far into the Turing program are you?)
