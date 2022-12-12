@@ -30,7 +30,7 @@ We were given approximately 11 days to work on this project.  We spent about 50 
     https://www.linkedin.com/in/anna-peterson-0a0662249/
 - Ciera DePauw:
     https://github.com/cieragrace
-    https://www.linkedin.com/in/ciera-depauw-a32bab253/
+    https://www.linkedin.com/in/ciera-depauw/
 - Keenan Southall:
     https://github.com/keenans1
     https://www.linkedin.com/in/keenan-southall/
