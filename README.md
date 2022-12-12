@@ -2,7 +2,7 @@
 
 ### Abstract:
 [//]: <> (Briefly describe what you built and its features. What problem is the app solving? How does this application solve that problem?)
-Here we built a fitness dashboard to display a random users info. This includes their hydration, sleep, and step activity along with their personal info.
+Here we built a fitness dashboard to display a random users info. This includes their hydration, sleep, and step activity along with their personal info. We have used FETCH to pull user data from the internet, rather than having hard coded data. Our app is dyslexic and color blind friendly.
 
 ### Installation Instructions:
 [//]: <> (What steps does a person have to take to get your app cloned down and running?)
@@ -26,11 +26,11 @@ We were given approximately 11 days to work on this project.  We spent about 50 
     https://github.com/crgweller 
     https://www.linkedin.com/in/craig-weller/
 - Anna Peterson: 
-    https://github.com/jsahim
-    https://www.linkedin.com/in
+    https://github.com/AnnaPete
+    https://www.linkedin.com/in/anna-peterson-0a0662249/
 - Ciera DePauw:
     https://github.com/cieragrace
-    https://www.linkedin.com/in/karimal-rashdan/
+    https://www.linkedin.com/in/ciera-depauw-a32bab253/
 - Keenan Southall:
     https://github.com/keenans1
     https://www.linkedin.com/in/keenan-southall/
