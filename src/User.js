@@ -44,25 +44,25 @@ class User {
   getAverageDailySleep() {
     let specificUserSleepData = this.getUserSleepData()
     let totalHours = specificUserSleepData.reduce((acc, user) => {
-      acc += user.hoursSlept;
-      return acc;
+      acc += user.hoursSlept
+      return acc
     }, 0);
-    let averageHours = totalHours / specificUserSleepData.length;
-    return Number(averageHours.toFixed(2));
+    let averageHours = totalHours / specificUserSleepData.length
+    return Number(averageHours.toFixed(2))
   }
 
   getUserSleepData() {
-    return this.sleepData.sleepData.filter(user => user.userID === this.userData.id);
+    return this.sleepData.sleepData.filter(user => user.userID === this.userData.id)
   }
 
   getOverallQualityAvg() {
-    let specificUserSleepQuality = this.getUserSleepData();
+    let specificUserSleepQuality = this.getUserSleepData()
     let totalQuality = specificUserSleepQuality.reduce((acc, user) => {
-      acc += user.sleepQuality;
+      acc += user.sleepQuality
       return acc;
     }, 0);
-    let averageQuality = totalQuality / specificUserSleepQuality.length;
-    return Number(averageQuality.toFixed(2));
+    let averageQuality = totalQuality / specificUserSleepQuality.length
+    return Number(averageQuality.toFixed(2))
   }
 
   sleepOnSpecificDate(date) {
