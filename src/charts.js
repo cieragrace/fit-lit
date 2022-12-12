@@ -60,7 +60,7 @@ function dailySleepChart(yValues) {
         text: "Today"
       }
     }
-  })
+  });
 }
 
 function dailySleepQualityChart(yValues) {
