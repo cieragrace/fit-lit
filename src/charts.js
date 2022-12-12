@@ -79,7 +79,7 @@ function dailySleepQualityChart(yValues) {
         text: "Today"
       }
     }
-  })
+  });
 }
 
 function sleepHistoryBarGraph(userSleepHistory, userQualityHistory) {
