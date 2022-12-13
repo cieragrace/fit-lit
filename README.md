@@ -22,18 +22,18 @@ Here we built a fitness dashboard to display a random user's info. This includes
 We were given approximately 11 days to work on this project.  We spent about 55 hours from start to finish.  We are on Week 3 of Mod 2. 
 
 ### Contributors: 
-- Craig Weller: 
-    [GitHub](https://github.com/crgweller)
-    [LinkedIn](https://www.linkedin.com/in/craig-weller/)
-- Anna Peterson: 
-    [GitHub](https://github.com/AnnaPete)
-    [LinkedIn](https://www.linkedin.com/in/anna-peterson-0a0662249/)
-- Ciera DePauw:
-    [GitHub](https://github.com/cieragrace)
-    [LinkedIn](https://www.linkedin.com/in/ciera-depauw/)
-- Keenan Southall:
-    [GitHub](https://github.com/keenans1)
-    [LinkedIn](https://www.linkedin.com/in/keenan-southall/)
+- Craig Weller: <br>
+    [GitHub](https://github.com/crgweller)<br>
+    [LinkedIn](https://www.linkedin.com/in/craig-weller/)<br>
+- Anna Peterson: <br>
+    [GitHub](https://github.com/AnnaPete)<br>
+    [LinkedIn](https://www.linkedin.com/in/anna-peterson-0a0662249/)<br>
+- Ciera DePauw:<br>
+    [GitHub](https://github.com/cieragrace)<br>
+    [LinkedIn](https://www.linkedin.com/in/ciera-depauw/)<br>
+- Keenan Southall:<br>
+    [GitHub](https://github.com/keenans1)<br>
+    [LinkedIn](https://www.linkedin.com/in/keenan-southall/)<br>
 
 
 ### Learning Goals:
