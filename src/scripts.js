@@ -59,21 +59,6 @@ function getUserFriends() {
     .join(', ')
 }
 
-// function displayWater() {
-//   let dailyWaterIntake = currentUser.getWaterPerDay('2019/06/15')
-//   return [dailyWaterIntake, 96 - dailyWaterIntake]
-// }
-// 
-// function displaySleep() {
-//   let dailySleep = currentUser.sleepOnSpecificDate('2019/06/15')
-//   return [dailySleep, 12 - dailySleep]
-// }
-// 
-// function displaySleepQuality() {
-//   let dailyQuality = currentUser.sleepQualityOnSpecificDate('2019/06/15')
-//   return [dailyQuality, 5 - dailyQuality]
-// }
-
 function displayInfo(date, data, property) {
   let dailyInfo = currentUser.getInfoByDay(date, data, property)
   let goal = 0
