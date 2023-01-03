@@ -74,21 +74,9 @@ function displaySleepQuality() {
   return [dailyQuality, 5 - dailyQuality]
 }
 
-function displayLast7DaysSleep() {
+function displayLast7DaysInfo(info, property) {
   return currentUser
-    .givenWeekSleepDataByDay()
-    .map(current => Object.values(current)[0])
-}
-
-function displayLast7DaysQuality() {
-  return currentUser
-    .givenWeeksSleepQualityByDay()
-    .map(current => Object.values(current)[0])
-}
-
-function displayLast7DaysHydration() {
-  return currentUser
-    .getWeeklyConsumption()
+    .getWeeklyInfo(info, property)
     .map(current => Object.values(current)[0])
 }
 
@@ -104,8 +92,8 @@ function loadPage() {
     displayWater(),
     displaySleep(),
     displaySleepQuality(),
-    displayLast7DaysSleep(),
-    displayLast7DaysQuality(),
-    displayLast7DaysHydration(),
-    displayAllTimeSleepData())
+    displayLast7DaysInfo('sleepData', 'hoursSlept'),
+    displayLast7DaysInfo('sleepData', 'sleepQuality'),
+    displayLast7DaysInfo('hydrationData', 'numOunces'),
+    displayAllTimeSleepData());
 }
