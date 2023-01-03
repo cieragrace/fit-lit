@@ -59,19 +59,17 @@ function getUserFriends() {
     .join(', ')
 }
 
-function displayWater() {
-  let dailyWaterIntake = currentUser.getWaterPerDay('2019/06/15')
-  return [dailyWaterIntake, 96 - dailyWaterIntake]
-}
-
-function displaySleep() {
-  let dailySleep = currentUser.sleepOnSpecificDate('2019/06/15')
-  return [dailySleep, 12 - dailySleep]
-}
-
-function displaySleepQuality() {
-  let dailyQuality = currentUser.sleepQualityOnSpecificDate('2019/06/15')
-  return [dailyQuality, 5 - dailyQuality]
+function displayInfo(date, data, property) {
+  let dailyInfo = currentUser.getInfoByDay(date, data, property)
+  let goal = 0
+  if (property === 'numOunces') {
+    goal = 96
+  } else if (property === 'sleepQuality') {
+    goal = 5
+  } else if (property === 'hoursSlept') {
+    goal = 12
+  }
+  return [dailyInfo, goal - dailyInfo]
 }
 
 function displayLast7DaysInfo(info, property) {
@@ -81,7 +79,7 @@ function displayLast7DaysInfo(info, property) {
 }
 
 function displayAllTimeSleepData() {
-  return [currentUser.getOverallQualityAvg(), currentUser.getAverageDailySleep()]
+  return [currentUser.getUserOverallAvgInfo('sleepQuality'), currentUser.getUserOverallAvgInfo('hoursSlept')]
 }
 
 function loadPage() {
@@ -89,9 +87,9 @@ function loadPage() {
   displayUserInfo()
   displayWelcomeName()
   loadCharts(displayStepGoal(),
-    displayWater(),
-    displaySleep(),
-    displaySleepQuality(),
+    displayInfo('2019/06/15', 'hydrationData', 'numOunces'),
+    displayInfo('2019/06/15', 'sleepData', 'hoursSlept'),
+    displayInfo('2019/06/15', 'sleepData', 'sleepQuality'),
     displayLast7DaysInfo('sleepData', 'hoursSlept'),
     displayLast7DaysInfo('sleepData', 'sleepQuality'),
     displayLast7DaysInfo('hydrationData', 'numOunces'),

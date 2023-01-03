@@ -257,14 +257,14 @@ describe('User', () => {
 		expect(user1.getFirstName()).to.equal("Luisa");
 	})
 
-	//Hydration
+	// Hydration
 	it('should output the average fluid ounces of water consumed daily', function () {
 		expect(user1.getAvgDailyWater(1)).to.equal(61);
 	})
 
 	it('should identify how many ounces of water a user consumed on a specific day', function () {
-		expect(user2.getWaterPerDay("2019/06/15")).to.equal(75);
-		expect(user3.getWaterPerDay("2019/06/15")).to.equal(47);
+		expect(user2.getInfoByDay("2019/06/15", "hydrationData", "numOunces")).to.equal(75);
+		expect(user3.getInfoByDay("2019/06/15", "hydrationData", "numOunces")).to.equal(47);
 	})
 
 	it('should calculate average ounces consumed daily over the course of one week', function () {
@@ -279,23 +279,23 @@ describe('User', () => {
 		]);
 	})
 
-	//Sleep
-	it('should return a users average number of hours of sleep per day', function () {
-		expect(user1.getAverageDailySleep()).to.equal(5.75);
+	// Sleep
+	it('should return a users overall average number of hours of sleep per day', function () {
+		expect(user1.getUserOverallAvgInfo('hoursSlept')).to.equal(5.75);
 	})
 
-	it('Should return a users average sleep quality', function () {
-		expect(user1.getOverallQualityAvg()).to.equal(2.6);
+	it('Should return a users overall average sleep quality', function () {
+		expect(user1.getUserOverallAvgInfo('sleepQuality')).to.equal(2.6);
 	})
 
 	it('Should give hours slept on a specific date', function () {
-		expect(user2.sleepOnSpecificDate("2019/06/15")).to.equal(7);
-		expect(user3.sleepOnSpecificDate("2019/06/15")).to.equal(10.8);
+		expect(user2.getInfoByDay("2019/06/15", "sleepData", "hoursSlept")).to.equal(7);
+		expect(user3.getInfoByDay("2019/06/15", "sleepData", "hoursSlept")).to.equal(10.8);
 	})
 
 	it('Should provide users sleep quality on specific date', function () {
-		expect(user2.sleepQualityOnSpecificDate("2019/06/15")).to.equal(4.7);
-		expect(user1.sleepQualityOnSpecificDate("2019/06/16")).to.equal(3);
+		expect(user2.getInfoByDay("2019/06/15", "sleepData", "sleepQuality")).to.equal(4.7);
+		expect(user1.getInfoByDay("2019/06/15", "sleepData", "sleepQuality")).to.equal(2.2);
 	})
 
 	it('Should provide daily sleep data for any given week', function () {
@@ -326,3 +326,5 @@ describe('User', () => {
 		expect(user1.averageSleepQuality()).to.equal(3.55);
 	})
 })
+
+// Activity
