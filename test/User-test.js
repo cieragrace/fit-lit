@@ -280,12 +280,12 @@ describe('User', () => {
 	})
 
 	//Sleep
-	it('should return a users average number of hours of sleep per day', function () {
-		expect(user1.getAverageDailySleep()).to.equal(5.75);
+	it('should return a users overall average number of hours of sleep per day', function () {
+		expect(user1.getUserOverallAvgInfo('hoursSlept')).to.equal(5.75);
 	})
 
-	it('Should return a users average sleep quality', function () {
-		expect(user1.getOverallQualityAvg()).to.equal(2.6);
+	it('Should return a users overall average sleep quality', function () {
+		expect(user1.getUserOverallAvgInfo('sleepQuality')).to.equal(2.6);
 	})
 
 	it('Should give hours slept on a specific date', function () {
