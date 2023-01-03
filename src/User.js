@@ -92,9 +92,7 @@ class User {
       .filter(user => user.userID === this.userData.id)
       .slice(-7)
       .map(user => {
-        let both = {};
-        both[user.date] = user.hoursSlept;
-        return both;
+        return { [user.date]: user.hoursSlept }
       });
   }
 
