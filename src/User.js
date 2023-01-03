@@ -9,6 +9,28 @@ class User {
     return this.userData.name.split(' ')[0]
   }
 
+  // Dynamic
+   getInfoByDay(date, data, property) {
+    return this[data][data]
+    .filter(user => user.date === date)
+    .reduce((acc, curr) => {
+      if (curr.userID === this.userData.id) {
+        acc = curr[property]
+      }
+      return acc
+    }, 0);
+  }
+
+  getWeeklyInfo(info, property) {
+    return this[info][info]
+      .filter(user => user.userID === this.userData.id)
+      .slice(-7)
+      .map(user => {
+        return { [user.date]: user[property] };
+      });
+  }
+
+  // Hydration
   getAvgDailyWater(userID) {
     let matchedIDS = this.hydrationData.hydrationData.filter(user => user.userID === userID)
     let avg = matchedIDS.reduce((acc, curr) => {
@@ -16,17 +38,6 @@ class User {
       return acc
     }, 0)
     return avg / matchedIDS.length
-  }
-
-  getWaterPerDay(date) {
-    return this.hydrationData.hydrationData
-      .filter(user => user.date === date)
-      .reduce((acc, curr) => {
-        if (curr.userID === this.userData.id) {
-          acc = curr.numOunces
-        }
-        return acc
-      }, 0);
   }
 
   // Sleep
@@ -52,37 +63,6 @@ class User {
     }, 0);
     let averageQuality = totalQuality / specificUserSleepQuality.length
     return Number(averageQuality.toFixed(2))
-  }
-
-  sleepOnSpecificDate(date) {
-    return this.sleepData.sleepData
-      .filter(user => user.date === date)
-      .reduce((acc, curr) => {
-        if (curr.userID === this.userData.id) {
-          acc = curr.hoursSlept
-        }
-        return acc
-      }, 0)
-  }
-
-  sleepQualityOnSpecificDate(date) {
-    return this.sleepData.sleepData
-      .filter(user => user.date === date)
-      .reduce((acc, curr) => {
-        if (curr.userID === this.userData.id) {
-          acc = curr.sleepQuality
-        }
-        return acc
-      }, 0);
-  }
-
-  getWeeklyInfo(info, property) {
-    return this[info][info]
-      .filter(user => user.userID === this.userData.id)
-      .slice(-7)
-      .map(user => {
-        return { [user.date]: user[property] };
-      });
   }
 
   averageSleepQuality() {
