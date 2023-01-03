@@ -257,7 +257,7 @@ describe('User', () => {
 		expect(user1.getFirstName()).to.equal("Luisa");
 	})
 
-	//Hydration
+	// Hydration
 	it('should output the average fluid ounces of water consumed daily', function () {
 		expect(user1.getAvgDailyWater(1)).to.equal(61);
 	})
@@ -279,7 +279,7 @@ describe('User', () => {
 		]);
 	})
 
-	//Sleep
+	// Sleep
 	it('should return a users overall average number of hours of sleep per day', function () {
 		expect(user1.getUserOverallAvgInfo('hoursSlept')).to.equal(5.75);
 	})
@@ -326,3 +326,5 @@ describe('User', () => {
 		expect(user1.averageSleepQuality()).to.equal(3.55);
 	})
 })
+
+// Activity
