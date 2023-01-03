@@ -29,17 +29,6 @@ class User {
       }, 0);
   }
 
-  getWeeklyConsumption() {
-    return this.hydrationData.hydrationData
-      .filter(user => user.userID === this.userData.id)
-      .slice(-7)
-      .map(user => {
-        let both = {};
-        both[user.date] = user.numOunces;
-        return both;
-      });
-  }
-
   // Sleep
   getAverageDailySleep() {
     let specificUserSleepData = this.getUserSleepData();
@@ -87,21 +76,41 @@ class User {
       }, 0);
   }
 
-  givenWeekSleepDataByDay() {
-    return this.sleepData.sleepData
-      .filter(user => user.userID === this.userData.id)
-      .slice(-7)
-      .map(user => {
-        return { [user.date]: user.hoursSlept }
-      });
-  }
+  // givenWeekSleepDataByDay() {
+  //   return this.sleepData.sleepData
+  //     .filter(user => user.userID === this.userData.id)
+  //     .slice(-7)
+  //     .map(user => {
+  //       return { [user.date]: user.hoursSlept }
+  //     });
+  // }
 
-  givenWeeksSleepQualityByDay() {
-    return this.sleepData.sleepData
+  // givenWeeksSleepQualityByDay() {
+  //   return this.sleepData.sleepData
+  //     .filter(user => user.userID === this.userData.id)
+  //     .slice(-7)
+  //     .map(user => {
+  //       return { [user.date]: user.sleepQuality };
+  //     });
+  // }
+
+  // getWeeklyConsumption() {
+  //   return this.hydrationData.hydrationData
+  //     .filter(user => user.userID === this.userData.id)
+  //     .slice(-7)
+  //     .map(user => {
+  //       let both = {};
+  //       both[user.date] = user.numOunces;
+  //       return both;
+  //     });
+  // }
+
+  getWeeklyInfo(info, property) {
+    return this[info][info]
       .filter(user => user.userID === this.userData.id)
       .slice(-7)
       .map(user => {
-        return { [user.date]: user.sleepQuality };
+        return { [user.date]: user[property] };
       });
   }
 
