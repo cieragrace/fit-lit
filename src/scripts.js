@@ -74,23 +74,49 @@ function displaySleepQuality() {
   return [dailyQuality, 5 - dailyQuality];
 }
 
-function displayLast7DaysSleep() {
+
+
+
+
+// function displayLast7DaysSleep() {
+//   return currentUser
+//     .givenWeekSleepDataByDay()
+//     .map(current => Object.values(current)[0])
+// }
+
+// function displayLast7DaysQuality() {
+//   return currentUser
+//     .givenWeeksSleepQualityByDay()
+//     .map(current => Object.values(current)[0])
+// }
+
+// function displayLast7DaysHydration() {
+//   return currentUser
+//     .getWeeklyConsumption()
+//     .map(current => Object.values(current)[0])
+// }
+
+
+function displayLast7DaysInfo(info, property) {
   return currentUser
-    .givenWeekSleepDataByDay()
+    .getWeeklyInfo(info, property)
     .map(current => Object.values(current)[0])
 }
 
-function displayLast7DaysQuality() {
-  return currentUser
-    .givenWeeksSleepQualityByDay()
-    .map(current => Object.values(current)[0])
-}
 
-function displayLast7DaysHydration() {
-  return currentUser
-    .getWeeklyConsumption()
-    .map(current => Object.values(current)[0])
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function displayAllTimeSleepData() {
   return [currentUser.getOverallQualityAvg(), currentUser.getAverageDailySleep()];
@@ -104,8 +130,15 @@ function loadPage() {
     displayWater(),
     displaySleep(),
     displaySleepQuality(),
-    displayLast7DaysSleep(),
-    displayLast7DaysQuality(),
-    displayLast7DaysHydration(),
+    //displayLast7DaysSleep(),
+    displayLast7DaysInfo('sleepData', 'hoursSlept'),
+    //displayLast7DaysQuality(),
+    displayLast7DaysInfo('sleepData', 'sleepQuality'),
+    //displayLast7DaysHydration(),
+    displayLast7DaysInfo('hydrationData', 'numOunces'),
+
+
+
+
     displayAllTimeSleepData());
 }
