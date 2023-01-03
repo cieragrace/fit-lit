@@ -31,6 +31,7 @@ class User {
   }
 
   // Hydration
+
   getAvgDailyWater(userID) {
     let matchedIDS = this.hydrationData.hydrationData.filter(user => user.userID === userID)
     let avg = matchedIDS.reduce((acc, curr) => {
@@ -65,5 +66,8 @@ class User {
     return Number(averageQuality.toFixed(2))
   }
 }
+
+// Activity
+
 
 export default User;
