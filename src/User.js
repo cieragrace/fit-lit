@@ -1,12 +1,12 @@
 class User {
   constructor(userData, sleepData, hydrationData) {
-    this.userData = userData;
-    this.sleepData = sleepData;
-    this.hydrationData = hydrationData;
+    this.userData = userData
+    this.sleepData = sleepData
+    this.hydrationData = hydrationData
   }
 
   getFirstName() {
-    return this.userData.name.split(' ')[0];
+    return this.userData.name.split(' ')[0]
   }
 
   getAvgDailyWater(userID) {
@@ -23,35 +23,35 @@ class User {
       .filter(user => user.date === date)
       .reduce((acc, curr) => {
         if (curr.userID === this.userData.id) {
-          acc = curr.numOunces;
+          acc = curr.numOunces
         }
-        return acc;
+        return acc
       }, 0);
   }
 
   // Sleep
   getAverageDailySleep() {
-    let specificUserSleepData = this.getUserSleepData();
+    let specificUserSleepData = this.getUserSleepData()
     let totalHours = specificUserSleepData.reduce((acc, user) => {
-      acc += user.hoursSlept;
-      return acc;
+      acc += user.hoursSlept
+      return acc
     }, 0);
-    let averageHours = totalHours / specificUserSleepData.length;
-    return Number(averageHours.toFixed(2));
+    let averageHours = totalHours / specificUserSleepData.length
+    return Number(averageHours.toFixed(2))
   }
 
   getUserSleepData() {
-    return this.sleepData.sleepData.filter(user => user.userID === this.userData.id);
+    return this.sleepData.sleepData.filter(user => user.userID === this.userData.id)
   }
 
   getOverallQualityAvg() {
-    let specificUserSleepQuality = this.getUserSleepData();
+    let specificUserSleepQuality = this.getUserSleepData()
     let totalQuality = specificUserSleepQuality.reduce((acc, user) => {
-      acc += user.sleepQuality;
+      acc += user.sleepQuality
       return acc;
     }, 0);
-    let averageQuality = totalQuality / specificUserSleepQuality.length;
-    return Number(averageQuality.toFixed(2));
+    let averageQuality = totalQuality / specificUserSleepQuality.length
+    return Number(averageQuality.toFixed(2))
   }
 
   sleepOnSpecificDate(date) {
@@ -59,10 +59,10 @@ class User {
       .filter(user => user.date === date)
       .reduce((acc, curr) => {
         if (curr.userID === this.userData.id) {
-          acc = curr.hoursSlept;
+          acc = curr.hoursSlept
         }
-        return acc;
-      }, 0);
+        return acc
+      }, 0)
   }
 
   sleepQualityOnSpecificDate(date) {
@@ -70,40 +70,11 @@ class User {
       .filter(user => user.date === date)
       .reduce((acc, curr) => {
         if (curr.userID === this.userData.id) {
-          acc = curr.sleepQuality;
+          acc = curr.sleepQuality
         }
-        return acc;
+        return acc
       }, 0);
   }
-
-  // givenWeekSleepDataByDay() {
-  //   return this.sleepData.sleepData
-  //     .filter(user => user.userID === this.userData.id)
-  //     .slice(-7)
-  //     .map(user => {
-  //       return { [user.date]: user.hoursSlept }
-  //     });
-  // }
-
-  // givenWeeksSleepQualityByDay() {
-  //   return this.sleepData.sleepData
-  //     .filter(user => user.userID === this.userData.id)
-  //     .slice(-7)
-  //     .map(user => {
-  //       return { [user.date]: user.sleepQuality };
-  //     });
-  // }
-
-  // getWeeklyConsumption() {
-  //   return this.hydrationData.hydrationData
-  //     .filter(user => user.userID === this.userData.id)
-  //     .slice(-7)
-  //     .map(user => {
-  //       let both = {};
-  //       both[user.date] = user.numOunces;
-  //       return both;
-  //     });
-  // }
 
   getWeeklyInfo(info, property) {
     return this[info][info]
@@ -116,11 +87,11 @@ class User {
 
   averageSleepQuality() {
     let totalQuality = this.sleepData.sleepData.reduce((acc, user) => {
-      acc += user.sleepQuality;
-      return acc;
+      acc += user.sleepQuality
+      return acc
     }, 0)
-    let averageQuality = totalQuality / this.sleepData.sleepData.length;
-    return Number(averageQuality.toFixed(2));
+    let averageQuality = totalQuality / this.sleepData.sleepData.length
+    return Number(averageQuality.toFixed(2))
   }
 }
 
