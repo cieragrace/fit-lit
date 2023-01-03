@@ -268,7 +268,7 @@ describe('User', () => {
 	})
 
 	it('should calculate average ounces consumed daily over the course of one week', function () {
-		expect(user2.getWeeklyConsumption()).to.deep.equal([
+		expect(user2.getWeeklyInfo('hydrationData', 'numOunces')).to.deep.equal([
 			{ '2019/06/17': 19 },
 			{ '2019/06/18': 42 },
 			{ '2019/06/19': 42 },
@@ -299,7 +299,7 @@ describe('User', () => {
 	})
 
 	it('Should provide daily sleep data for any given week', function () {
-		expect(user2.givenWeekSleepDataByDay()).to.deep.equal([
+		expect(user2.getWeeklyInfo('sleepData', 'hoursSlept')).to.deep.equal([
 			{ '2019/06/16': 4.1 },
 			{ '2019/06/17': 4.1 },
 			{ '2019/06/18': 4.1 },
@@ -311,7 +311,7 @@ describe('User', () => {
 	})
 
 	it('Should provide daily sleep quality for any given week', function () {
-		expect(user2.givenWeeksSleepQualityByDay()).to.deep.equal([
+		expect(user2.getWeeklyInfo('sleepData', 'sleepQuality')).to.deep.equal([
 			{ '2019/06/16': 3.6 },
 			{ '2019/06/17': 3.6 },
 			{ '2019/06/18': 3.6 },
