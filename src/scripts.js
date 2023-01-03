@@ -79,7 +79,7 @@ function displayLast7DaysInfo(info, property) {
 }
 
 function displayAllTimeSleepData() {
-  return [currentUser.getOverallQualityAvg(), currentUser.getAverageDailySleep()]
+  return [currentUser.getUserOverallAvgInfo('sleepQuality'), currentUser.getUserOverallAvgInfo('hoursSlept')]
 }
 
 function loadPage() {
