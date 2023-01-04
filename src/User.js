@@ -1,8 +1,9 @@
 class User {
-  constructor(userData, sleepData, hydrationData) {
+  constructor(userData, sleepData, hydrationData,) {
     this.userData = userData
     this.sleepData = sleepData
     this.hydrationData = hydrationData
+    // this.activityData = activityData
   }
 
   getFirstName() {

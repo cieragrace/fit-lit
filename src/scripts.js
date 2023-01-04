@@ -9,6 +9,7 @@ let users
 let sleep
 let hydration
 let currentUser
+let activity
 
 //Query Selectors
 let activityTrackerTitle = document.querySelector('h1')
@@ -19,11 +20,13 @@ window.addEventListener('load', getAllData)
 
 //Event Handlers
 function getAllData() {
-  Promise.all([getAPIData('users'), getAPIData('sleep'), getAPIData('hydration')])
+  Promise.all([getAPIData('users'), getAPIData('sleep'), getAPIData('hydration'), getAPIData('activity')])
     .then((data) => {
       users = new UserRepository(data[0])
       sleep = data[1]
       hydration = data[2]
+      activity = data[3]
+      console.log(activity)
       loadPage()
     })
     .catch(err => console.log('To err is human', err))
