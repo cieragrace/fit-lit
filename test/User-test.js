@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import User from '../src/User'
 
 describe('User', () => {
-	let user1, user2, user3, hydrationData, sleepData
+	let user1, user2, user3, hydrationData, sleepData, activityData
 	beforeEach(() => {
 		hydrationData = {
 			hydrationData: [
@@ -198,7 +198,7 @@ describe('User', () => {
 				4,
 				8
 			]
-		}, sleepData, hydrationData);
+		}, sleepData, hydrationData, activityData);
 
 		user2 = new User({
 			"id": 2,
@@ -213,7 +213,7 @@ describe('User', () => {
 				24,
 				19
 			]
-		}, sleepData, hydrationData);
+		}, sleepData, hydrationData, activityData);
 
 		user3 = new User({
 			"id": 3,
@@ -228,7 +228,7 @@ describe('User', () => {
 				42,
 				33
 			]
-		}, sleepData, hydrationData);
+		}, sleepData, hydrationData, activityData);
 	})
 
 	it('should be a function', function () {
@@ -371,6 +371,11 @@ describe('User', () => {
 	it('Should average overall sleep quality for all users', function () {
 		expect(user1.averageSleepQuality()).to.equal(3.55);
 	})
-})
 
-// Activity
+
+	// Activity
+
+	it.only('should have a activityData parameter', function () {
+		expect(user1.activityData).to.deep.equal(activityData);
+	})
+})
