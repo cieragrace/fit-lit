@@ -8,6 +8,7 @@ import loadCharts from './charts'
 let users
 let sleep
 let hydration
+let activity
 let currentUser
 
 //Query Selectors
@@ -19,11 +20,12 @@ window.addEventListener('load', getAllData)
 
 //Event Handlers
 function getAllData() {
-  Promise.all([getAPIData('users'), getAPIData('sleep'), getAPIData('hydration')])
+  Promise.all([getAPIData('users'), getAPIData('sleep'), getAPIData('hydration'), getAPIData('activity')])
     .then((data) => {
       users = new UserRepository(data[0])
       sleep = data[1]
       hydration = data[2]
+      activity = data[3]
       loadPage()
     })
     .catch(err => console.log('To err is human', err))
