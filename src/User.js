@@ -77,14 +77,20 @@ class User {
 
   getWeeklyActiveMinutes(info, property) {
     let weeklyMinutes = this.getWeeklyInfo(info, property);
-
     let totalMinutes = weeklyMinutes.reduce((sum, min) => {
       let minuteValue = Object.values(min)
       sum += minuteValue[0]
       return sum
     }, 0)
-
     return Number((totalMinutes / weeklyMinutes.length).toFixed(2))
+  }
+
+  checkDailyStepGoal(user, date, data, property) {
+    let numSteps = this.getInfoByDay(date, data, property);
+    if (numSteps >= user.userData.dailyStepGoal) {
+      return true
+    }
+    return false
   }
 }
 
