@@ -372,10 +372,12 @@ describe('User', () => {
 		expect(user1.averageSleepQuality()).to.equal(3.55);
 	})
 
-
 	// Activity
-
-	it.only('should have a activityData parameter', function () {
+	it('should have a activityData parameter', function () {
 		expect(user1.activityData).to.deep.equal(activityData);
+	})
+
+	it('should return miles user walked on a specific date', function () {
+		expect(user1.getDailyMiles(user1, "2019/06/15", 'activityData', 'numSteps')).to.equal(2.91);
 	})
 })
