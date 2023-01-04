@@ -1,8 +1,9 @@
 class User {
-  constructor(userData, sleepData, hydrationData) {
+  constructor(userData, sleepData, hydrationData, activityData) {
     this.userData = userData
     this.sleepData = sleepData
     this.hydrationData = hydrationData
+    this.activityData = activityData
   }
 
   getFirstName() {
@@ -10,15 +11,15 @@ class User {
   }
 
   // Dynamic
-   getInfoByDay(date, data, property) {
+  getInfoByDay(date, data, property) {
     return this[data][data]
-    .filter(user => user.date === date)
-    .reduce((acc, curr) => {
-      if (curr.userID === this.userData.id) {
-        acc = curr[property]
-      }
-      return acc
-    }, 0);
+      .filter(user => user.date === date)
+      .reduce((acc, curr) => {
+        if (curr.userID === this.userData.id) {
+          acc = curr[property]
+        }
+        return acc
+      }, 0);
   }
 
   getWeeklyInfo(info, property) {
