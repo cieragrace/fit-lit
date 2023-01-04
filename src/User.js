@@ -66,9 +66,14 @@ class User {
     let averageQuality = totalQuality / this.sleepData.sleepData.length
     return Number(averageQuality.toFixed(2))
   }
+
+  // Activity
+
+  getDailyMiles(user, date, data, property) {
+    let numSteps = this.getInfoByDay(date, data, property);
+    let totalFeet = numSteps * user.userData.strideLength;
+    return Number((totalFeet / 5280).toFixed(2))
+  }
 }
-
-// Activity
-
 
 export default User;
