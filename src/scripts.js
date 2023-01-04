@@ -32,6 +32,19 @@ function getAllData() {
     .catch(err => console.log('To err is human', err))
 }
 
+function updateData(newData) {
+  fetch(`http://localhost:3001/api/v1/${data}`, {
+    method: 'POST',
+    body: JSON.stringify({newData}), 
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  .then(response => response.json())
+  .then(data => console.log('data', data))
+  .catch(error => console.log(error)) 
+}
+
 function displayUserInfo() {
   userInfoList.innerHTML += `<li>${currentUser.userData.name}</li>
   <li>${currentUser.userData.address}</li> 
