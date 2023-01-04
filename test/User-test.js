@@ -388,4 +388,8 @@ describe('User', () => {
 	it('should return how many minutes a user was active on average over a week', function () {
 		expect(user1.getWeeklyActiveMinutes('activityData', 'minutesActive')).to.equal(157.5)
 	})
+
+	it('should return true or false if user achieved their daily step goal on specific date', function () {
+		expect(user1.checkDailyStepGoal(user1, "2019/06/15", 'activityData', 'numSteps')).to.equal(false)
+	})
 })
