@@ -380,4 +380,8 @@ describe('User', () => {
 	it('should return miles user walked on a specific date', function () {
 		expect(user1.getDailyMiles(user1, "2019/06/15", 'activityData', 'numSteps')).to.equal(2.91);
 	})
+
+	it.only('should return how many minutes a user was active on a specific date', function () {
+		expect(user1.getInfoByDay("2019/06/15", 'activityData', 'minutesActive')).to.equal(140)
+	})
 })
