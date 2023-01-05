@@ -393,7 +393,12 @@ describe('User', () => {
 		expect(user1.checkDailyStepGoal(user1, "2019/06/15", 'activityData', 'numSteps')).to.equal(false)
 	})
 
-	it.only('should return dates when user met/exceeded step goal', function () {
+	it('should return dates when user met/exceeded step goal', function () {
 		expect(user3.getExceededStepGoalDates(user3, 'activityData', 'date')).to.deep.equal(["2019/06/15", "2019/06/16"])
 	})
+
+	it('should return highest stair climbing record', function() {
+		expect(user2.getHighestStairRecord()).to.equal(37)
+	})
+
 })
