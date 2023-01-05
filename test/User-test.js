@@ -405,12 +405,12 @@ describe('User', () => {
 		expect(user1.getOverallData('2019/06/15', 'activityData', 'flightsOfStairs')).to.equal(19.67)
 	})
 
-	// it('should return average number of steps taken on specified date for all users', function() {
-		
-	// })
+	it('should return average number of steps taken on specified date for all users', function() {
+		expect(user2.getOverallData('2019/06/16', 'activityData', 'numSteps')).to.equal(7684.33)
+	})
 
-	// it('should return average number of minutes active on specified date for all users', function() {
-		
-	// })
+	it('should return average number of minutes active on specified date for all users', function() {
+		expect(user3.getOverallData('2019/06/16', 'activityData', 'minutesActive')).to.equal(182.33)
+	})
 
 })
