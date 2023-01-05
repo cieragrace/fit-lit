@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import User from '../src/User'
 
 describe('User', () => {
-	let user1, user2, user3, hydrationData, sleepData
+	let user1, user2, user3, hydrationData, sleepData, activityData
 	beforeEach(() => {
 		hydrationData = {
 			hydrationData: [
@@ -140,6 +140,52 @@ describe('User', () => {
 			]
 		}
 
+		activityData = {
+			activityData: [{
+				userID: 1,
+				date: "2019/06/15",
+				numSteps: 3577,
+				minutesActive: 140,
+				flightsOfStairs: 16
+			},
+			{
+				userID: 2,
+				date: "2019/06/15",
+				numSteps: 4294,
+				minutesActive: 138,
+				flightsOfStairs: 10
+			},
+			{
+				userID: 3,
+				date: "2019/06/15",
+				numSteps: 7402,
+				minutesActive: 116,
+				flightsOfStairs: 33
+			},
+			{
+				userID: 1,
+				date: "2019/06/16",
+				numSteps: 6637,
+				minutesActive: 175,
+				flightsOfStairs: 36
+			},
+			{
+				userID: 2,
+				date: "2019/06/16",
+				numSteps: 4112,
+				minutesActive: 220,
+				flightsOfStairs: 37
+			},
+			{
+				userID: 3,
+				date: "2019/06/16",
+				numSteps: 12304,
+				minutesActive: 152,
+				flightsOfStairs: 8
+			}
+			]
+		}
+
 		user1 = new User({
 			"id": 1,
 			"name": "Luisa Hane",
@@ -152,7 +198,7 @@ describe('User', () => {
 				4,
 				8
 			]
-		}, sleepData, hydrationData);
+		}, sleepData, hydrationData, activityData);
 
 		user2 = new User({
 			"id": 2,
@@ -167,7 +213,7 @@ describe('User', () => {
 				24,
 				19
 			]
-		}, sleepData, hydrationData);
+		}, sleepData, hydrationData, activityData);
 
 		user3 = new User({
 			"id": 3,
@@ -182,7 +228,7 @@ describe('User', () => {
 				42,
 				33
 			]
-		}, sleepData, hydrationData);
+		}, sleepData, hydrationData, activityData);
 	})
 
 	it('should be a function', function () {
@@ -325,6 +371,29 @@ describe('User', () => {
 	it('Should average overall sleep quality for all users', function () {
 		expect(user1.averageSleepQuality()).to.equal(3.55);
 	})
-})
 
-// Activity
+	// Activity
+	it('should have a activityData parameter', function () {
+		expect(user1.activityData).to.deep.equal(activityData);
+	})
+
+	it('should return miles user walked on a specific date', function () {
+		expect(user1.getDailyMiles(user1, "2019/06/15", 'activityData', 'numSteps')).to.equal(2.91);
+	})
+
+	it('should return how many minutes a user was active on a specific date', function () {
+		expect(user1.getInfoByDay("2019/06/15", 'activityData', 'minutesActive')).to.equal(140)
+	})
+
+	it('should return how many minutes a user was active on average over a week', function () {
+		expect(user1.getWeeklyActiveMinutes('activityData', 'minutesActive')).to.equal(157.5)
+	})
+
+	it('should return true or false if user achieved their daily step goal on specific date', function () {
+		expect(user1.checkDailyStepGoal(user1, "2019/06/15", 'activityData', 'numSteps')).to.equal(false)
+	})
+
+	it.only('should return dates when user met/exceeded step goal', function () {
+		expect(user3.getExceededStepGoalDates(user3, 'activityData', 'date')).to.deep.equal(["2019/06/15", "2019/06/16"])
+	})
+})
