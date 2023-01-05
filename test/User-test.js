@@ -401,4 +401,16 @@ describe('User', () => {
 		expect(user2.getHighestStairRecord()).to.equal(37)
 	})
 
+	it('should return average number of stairs climbed on specified date for all users', function() {
+		expect(user1.getOverallData('2019/06/15', 'activityData', 'flightsOfStairs')).to.equal(19.67)
+	})
+
+	// it('should return average number of steps taken on specified date for all users', function() {
+		
+	// })
+
+	// it('should return average number of minutes active on specified date for all users', function() {
+		
+	// })
+
 })
