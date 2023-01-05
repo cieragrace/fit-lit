@@ -92,6 +92,18 @@ class User {
     }
     return false
   }
+
+  getExceededStepGoalDates(user, data, property) {
+    return user[data][data]
+      .filter(current => {
+        if (current.userID === user.userData.id && current.numSteps >= user.userData.dailyStepGoal) {
+          return current
+        }
+      })
+      .map(day => {
+        return day.date
+      })
+  }
 }
 
 export default User;
