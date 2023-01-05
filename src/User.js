@@ -104,6 +104,14 @@ class User {
         return day.date
       })
   }
-}
+
+  getHighestStairRecord() {
+      let record = this.activityData.activityData.reduce((least, most) => {
+        return least.flightsOfStairs > most.flightsOfStairs ? least : most
+      }, 0)
+        return record.flightsOfStairs
+    }
+      
+  }
 
 export default User;
