@@ -111,7 +111,27 @@ class User {
       }, 0)
         return record.flightsOfStairs
     }
-      
+
+
+  getOverallData(date, data, property) {
+    let counter = 0
+    let overallInfo = this[data][data]
+      .filter(user => user.date === date)
+      .reduce((acc, curr) => {
+        counter ++
+        console.log("Curr", curr)
+        acc += curr[property]
+        return acc
+      }, 0)
+    let overallInfoAvg = overallInfo / counter
+      console.log(overallInfoAvg)
+      console.log(overallInfo)
+      return Number(overallInfoAvg.toFixed(2))
   }
+}
+// overallInfo = 59 (total flights climbed on specific date for all 3 users)
+// need to set variables to filtered array of users to access length of users array.
+  
+
 
 export default User;
