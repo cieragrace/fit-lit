@@ -11,15 +11,15 @@ class User {
   }
 
   // Dynamic
-   getInfoByDay(date, data, property) {
+  getInfoByDay(date, data, property) {
     return this[data][data]
-    .filter(user => user.date === date)
-    .reduce((acc, curr) => {
-      if (curr.userID === this.userData.id) {
-        acc = curr[property]
-      }
-      return acc
-    }, 0);
+      .filter(user => user.date === date)
+      .reduce((acc, curr) => {
+        if (curr.userID === this.userData.id) {
+          acc = curr[property]
+        }
+        return acc
+      }, 0);
   }
 
   getWeeklyInfo(info, property) {
@@ -66,9 +66,44 @@ class User {
     let averageQuality = totalQuality / this.sleepData.sleepData.length
     return Number(averageQuality.toFixed(2))
   }
+
+  // Activity
+
+  getDailyMiles(user, date, data, property) {
+    let numSteps = this.getInfoByDay(date, data, property);
+    let totalFeet = numSteps * user.userData.strideLength;
+    return Number((totalFeet / 5280).toFixed(2))
+  }
+
+  getWeeklyActiveMinutes(info, property) {
+    let weeklyMinutes = this.getWeeklyInfo(info, property);
+    let totalMinutes = weeklyMinutes.reduce((sum, min) => {
+      let minuteValue = Object.values(min)
+      sum += minuteValue[0]
+      return sum
+    }, 0)
+    return Number((totalMinutes / weeklyMinutes.length).toFixed(2))
+  }
+
+  checkDailyStepGoal(user, date, data, property) {
+    let numSteps = this.getInfoByDay(date, data, property);
+    if (numSteps >= user.userData.dailyStepGoal) {
+      return true
+    }
+    return false
+  }
+
+  getExceededStepGoalDates(user, data, property) {
+    return user[data][data]
+      .filter(current => {
+        if (current.userID === user.userData.id && current.numSteps >= user.userData.dailyStepGoal) {
+          return current
+        }
+      })
+      .map(day => {
+        return day.date
+      })
+  }
 }
-
-// Activity
-
 
 export default User;
