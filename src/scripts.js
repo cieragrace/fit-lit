@@ -8,7 +8,6 @@ import loadCharts from './charts'
 let users
 let sleep
 let hydration
-let activity
 let currentUser
 let activity
 
