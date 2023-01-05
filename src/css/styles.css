@@ -142,7 +142,7 @@ canvas {
   max-width: 275px;
 }
 
-/* @media (max-width: 468px) {
+@media (max-width: 468px) {
   body,
   html {
     background-image: linear-gradient(to bottom, lightblue 0%, skyblue 50%, navy 100%);
@@ -275,7 +275,7 @@ canvas {
     width: 400px;
     max-width: 400px;
   }
-} */
+}
 
   @media (max-width: 768px) {
     body,
