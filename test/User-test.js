@@ -392,4 +392,8 @@ describe('User', () => {
 	it('should return true or false if user achieved their daily step goal on specific date', function () {
 		expect(user1.checkDailyStepGoal(user1, "2019/06/15", 'activityData', 'numSteps')).to.equal(false)
 	})
+
+	it.only('should return dates when user met/exceeded step goal', function () {
+		expect(user3.getExceededStepGoalDates(user3, 'activityData', 'date')).to.deep.equal(["2019/06/15", "2019/06/16"])
+	})
 })
