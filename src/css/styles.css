@@ -43,6 +43,14 @@ h2 {
   margin-top: 5px;
 }
 
+h3 {
+  font-size: medium;
+}
+
+p {
+  font-size: small;
+}
+
 ul {
   list-style-type: circle;
   font-size: small;
@@ -126,6 +134,23 @@ canvas {
   grid-row: 3;
   max-height:275px;
   max-width: 825px;
+  display: flex;
+  flex-direction: column;
+}
+
+.weeklyActivity-placement {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  max-height: 300px;
+}
+
+.a {
+  margin-left: 110px;
+}
+
+.weeklyMinsText {
+  font-size: small;
 }
 
 .nine {
