@@ -46,11 +46,13 @@ function updateData(newData) {
 }
 
 function displayUserInfo() {
+  console.log(currentUser.activityData)
   userInfoList.innerHTML += `<li>${currentUser.userData.name}</li>
   <li>${currentUser.userData.address}</li> 
   <li>${currentUser.userData.email}</li>
   <li>Stride Length: ${currentUser.userData.strideLength}</li>
   <li>Daily Step Goal: ${currentUser.userData.dailyStepGoal}</li>
+  <li>Active Mins Today: ${currentUser.getInfoByDay('2019/06/15', 'activityData', 'minutesActive')}</li>
   <li>Friends: ${getUserFriends()}</li>`
 }
 
@@ -66,7 +68,7 @@ function displayStepGoal() {
 function getUser(sleep, hydration) {
   let randomIndex = Math.floor(Math.random() * users.data.userData.length)
   let randomUser = users.data.userData[randomIndex]
-  currentUser = new User(randomUser, sleep, hydration)
+  currentUser = new User(randomUser, sleep, hydration, activity)
 }
 
 function getUserFriends() {
@@ -98,10 +100,15 @@ function displayAllTimeSleepData() {
   return [currentUser.getUserOverallAvgInfo('sleepQuality'), currentUser.getUserOverallAvgInfo('hoursSlept')]
 }
 
+function getUserDailyActivityInfo(date, data, property) {
+   currentUser.getInfoByDay(date, data, property)
+}
+
+
 function loadPage() {
   getUser(sleep, hydration)
   displayUserInfo()
-  displayWelcomeName()
+  displayWelcomeName();
   loadCharts(displayStepGoal(),
     displayInfo('2019/06/15', 'hydrationData', 'numOunces'),
     displayInfo('2019/06/15', 'sleepData', 'hoursSlept'),
@@ -109,5 +116,5 @@ function loadPage() {
     displayLast7DaysInfo('sleepData', 'hoursSlept'),
     displayLast7DaysInfo('sleepData', 'sleepQuality'),
     displayLast7DaysInfo('hydrationData', 'numOunces'),
-    displayAllTimeSleepData());
+    displayAllTimeSleepData())
 }
