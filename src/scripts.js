@@ -14,6 +14,9 @@ let activity
 //Query Selectors
 let activityTrackerTitle = document.querySelector('h1')
 let userInfoList = document.querySelector("#userInfoList")
+let allUsersSteps = document.querySelector("#allUsersSteps")
+let allUsersFlights = document.querySelector("#allUsersFlights")
+let allUsersMins = document.querySelector("#allUsersMins")
 
 // Event Listeners
 window.addEventListener('load', getAllData)
@@ -26,7 +29,6 @@ function getAllData() {
       sleep = data[1]
       hydration = data[2]
       activity = data[3]
-      console.log(activity)
       loadPage()
     })
     .catch(err => console.log('To err is human', err))
@@ -54,6 +56,11 @@ function displayUserInfo() {
   <li>Friends: ${getUserFriends()}</li>`
 }
 
+function displayOtherUsersInfo() {
+  allUsersSteps.innerText += currentUser.getOverallData("2022/01/22", 'activityData', 'numSteps')
+  // allUsersFlights.innerText += currentUser.getOverallData("2022/01/22", 'activityData', 'flightsOfStairs')
+}
+
 function displayWelcomeName() {
   activityTrackerTitle.innerText += ` ${currentUser.getFirstName()}`
 }
@@ -66,7 +73,7 @@ function displayStepGoal() {
 function getUser(sleep, hydration) {
   let randomIndex = Math.floor(Math.random() * users.data.userData.length)
   let randomUser = users.data.userData[randomIndex]
-  currentUser = new User(randomUser, sleep, hydration)
+  currentUser = new User(randomUser, sleep, hydration, activity)
 }
 
 function getUserFriends() {
@@ -101,6 +108,7 @@ function displayAllTimeSleepData() {
 function loadPage() {
   getUser(sleep, hydration)
   displayUserInfo()
+  displayOtherUsersInfo()
   displayWelcomeName()
   loadCharts(displayStepGoal(),
     displayInfo('2019/06/15', 'hydrationData', 'numOunces'),
