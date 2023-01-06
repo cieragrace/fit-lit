@@ -59,6 +59,7 @@ function displayUserInfo() {
 function displayOtherUsersInfo() {
   allUsersSteps.innerText += currentUser.getOverallData("2022/01/22", 'activityData', 'numSteps')
   allUsersFlights.innerText += currentUser.getOverallData("2022/01/22", 'activityData', 'flightsOfStairs')
+  allUsersMins.innerText += currentUser.getOverallData("2022/01/22", 'activityData', 'minutesActive')
 }
 
 function displayWelcomeName() {
