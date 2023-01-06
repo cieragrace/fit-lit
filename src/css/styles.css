@@ -81,9 +81,10 @@ canvas {
 
 .two {
   grid-column: 1;
-  grid-row: 1 / 3;
-  max-height: 665px;
+  grid-row: 1;
+  max-height: 275px;
   margin-left: 8px;
+  max-width: 275px;
 }
 
 .three {
@@ -102,8 +103,36 @@ canvas {
 .five {
   max-width: 275px;
   max-height: 325px;
-
 }
+
+.six {
+  grid-column: 1;
+  grid-row: 2;
+  max-height:325px;
+  max-width: 275px;
+}
+
+.seven {
+  grid-column: 1;
+  grid-row: 3;
+  max-height:275px;
+  max-width: 275px;
+}
+
+.eight {
+  grid-column: 2 / 4;
+  grid-row: 3;
+  max-height:275px;
+  max-width: 825px;
+}
+
+.nine {
+  grid-column: 4;
+  grid-row: 3;
+  max-height:275px;
+  max-width: 275px;
+}
+
 #dailySleep {
   width: 125px;
 }
