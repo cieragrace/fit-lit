@@ -17,6 +17,7 @@ let userInfoList = document.querySelector("#userInfoList")
 let allUsersSteps = document.querySelector("#allUsersSteps")
 let allUsersFlights = document.querySelector("#allUsersFlights")
 let allUsersMins = document.querySelector("#allUsersMins")
+let milesWalked = document.querySelector("#milesWalked")
 
 // Event Listeners
 window.addEventListener('load', getAllData)
@@ -66,6 +67,10 @@ function displayWelcomeName() {
   activityTrackerTitle.innerText += ` ${currentUser.getFirstName()}`
 }
 
+function displayMilesWalked() {
+  milesWalked.innerText += currentUser.getDailyMiles(currentUser, "2022/01/22", 'activityData', 'numSteps')
+}
+
 function displayStepGoal() {
   return [currentUser.userData.dailyStepGoal, (users.stepGoalAverage() - currentUser.userData.dailyStepGoal)]
 }
@@ -110,6 +115,7 @@ function loadPage() {
   getUser(sleep, hydration)
   displayUserInfo()
   displayOtherUsersInfo()
+  displayMilesWalked()
   displayWelcomeName()
   loadCharts(displayStepGoal(),
     displayInfo('2019/06/15', 'hydrationData', 'numOunces'),
