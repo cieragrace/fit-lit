@@ -39,16 +39,18 @@ h1 {
 
 h2 {
   font-size: x-large;
+  margin-bottom: 5px;
+  margin-top: 5px;
 }
 
 ul {
   list-style-type: circle;
-  font-size: medium;
-  margin-top: 60px;
+  font-size: small;
+  margin-top: 5px;
 }
 
 li {
-  margin-top: 25px;
+  margin-top: 5px;
   font-size: medium;
 }
 
