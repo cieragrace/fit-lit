@@ -119,13 +119,13 @@ class User {
       .filter(user => user.date === date)
       .reduce((acc, curr) => {
         counter ++
-        console.log("Curr", curr)
+        console.log("getOverallData function", curr)
         acc += curr[property]
         return acc
       }, 0)
     let overallInfoAvg = overallInfo / counter
-      console.log(overallInfoAvg)
-      console.log(overallInfo)
+      console.log('overallInfoAvg variable', overallInfoAvg)
+      console.log('overallInfo variable', overallInfo)
       return Number(overallInfoAvg.toFixed(2))
   }
 }
