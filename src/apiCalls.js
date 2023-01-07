@@ -21,6 +21,4 @@ function updateAPIData(newData, endpoint) {
   return results
 }
 
-
-
 export { getAPIData, updateAPIData }

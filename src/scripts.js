@@ -33,12 +33,7 @@ let weeklyUserFlights = document.querySelector("#weeklyFlights-h2")
 
 // Event Listeners
 window.addEventListener('load', getAllData)
-userInfoSubmitButton.addEventListener('click', function(event) {
-  event.preventDefault()
-  postSleepData()
-  postActivityData()
-  postHydrationData()
-})
+userInfoSubmitButton.addEventListener('click', handleSubmit)
 
 //Event Handlers
 function getAllData() {
@@ -136,24 +131,48 @@ function displayWeeklyActivity(info, property, container) {
 function enableSubmitButton() {
   if (hoursSleptInput.value || qualitySleepInput.value || userHydrationInput.value || userMinsActiveInput.value || userStepsInput.value || userFlightsInput.value ) {
     userInfoSubmitButton.disabled = false
-    } else {
-      userInfoSubmitButton.disabled = true
-    }    
-  }
+  } else {
+    userInfoSubmitButton.disabled = true
+  }    
+}
+
+function handleSubmit(event) {
+  event.preventDefault()
+  postSleepData()
+  // postActivityData()
+  // postHydrationData()
+  console.log(currentUser)
+}
 
 function postSleepData() {
-  const newData = {'userID': currentUser.userData.id, 'date': dayjs(new Date()).format('DD/MM/YYYY'), 'hoursSlept': currentUser.sleepData.sleepData.hoursSlept, 'sleepQuality': currentUser.sleepData.sleepData.sleepQuality}
+  const hoursSlept = hoursSleptInput.value
+  const sleepQuality = qualitySleepInput.value
+  const newData = {
+    'userID': currentUser.userData.id, 
+    'date': dayjs(new Date()).format('DD/MM/YYYY'), 
+    'hoursSlept': hoursSlept,
+    'sleepQuality': sleepQuality,
+  }
   updateAPIData(newData, 'sleep')
 }
 
 function postActivityData() {
-  const newData = {'userID': currentUser.userData.id, 'date': dayjs(new Date()).format('DD/MM/YYYY'), 'flightsOfStairs': currentUser.activityData.activityData.flightsOfStairs, 
-  'minutesActive': currentUser.activityData.activityData.minutesActive, 'numSteps': currentUser.activityData.activityData.numSteps}
+  const newData = {
+    'userID': currentUser.userData.id, 
+    'date': dayjs(new Date()).format('DD/MM/YYYY'), 
+    'flightsOfStairs': currentUser.activityData.activityData.flightsOfStairs, 
+    'minutesActive': currentUser.activityData.activityData.minutesActive, 
+    'numSteps': currentUser.activityData.activityData.numSteps
+  }
   updateAPIData(newData, 'activity') 
 }
 
 function postHydrationData() {
-  const newData = {'userID': currentUser.userData.id, 'date': dayjs(new Date()).format('DD/MM/YYYY'), 'numOunces': currentUser.hydrationData.hydrationData.numOunces}
+  const newData = {
+    'userID': currentUser.userData.id, 
+    'date': dayjs(new Date()).format('DD/MM/YYYY'), 
+    'numOunces': currentUser.hydrationData.hydrationData.numOunces
+  }
   updateAPIData(newData, 'hydration')
 }
  
