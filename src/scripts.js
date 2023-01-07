@@ -139,7 +139,7 @@ function enableSubmitButton() {
 function handleSubmit(event) {
   event.preventDefault()
   postSleepData()
-  // postActivityData()
+  postActivityData()
   // postHydrationData()
   console.log(currentUser)
 }
@@ -157,17 +157,21 @@ function postSleepData() {
 }
 
 function postActivityData() {
+  const flightsOfStairs = userFlightsInput.value
+  const minutesActive = userMinsActiveInput.value
+  const numSteps = userStepsInput.value
   const newData = {
     'userID': currentUser.userData.id, 
     'date': dayjs(new Date()).format('DD/MM/YYYY'), 
-    'flightsOfStairs': currentUser.activityData.activityData.flightsOfStairs, 
-    'minutesActive': currentUser.activityData.activityData.minutesActive, 
-    'numSteps': currentUser.activityData.activityData.numSteps
+    'flightsOfStairs': flightsOfStairs,
+    'minutesActive': minutesActive, 
+    'numSteps': numSteps,
   }
   updateAPIData(newData, 'activity') 
 }
 
 function postHydrationData() {
+  const numOunces = userHydrationInput.value
   const newData = {
     'userID': currentUser.userData.id, 
     'date': dayjs(new Date()).format('DD/MM/YYYY'), 
