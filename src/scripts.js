@@ -35,6 +35,7 @@ window.addEventListener('load', getAllData)
 userInfoSubmitButton.addEventListener('click', function() {
   postSleepData()
   postActivityData()
+  postHydrationData()
 })
 
 //Event Handlers
@@ -145,6 +146,12 @@ function postSleepData(event) {
 }
 
 function postActivityData(event) {
+  event.preventDefault()
+  const newData = {'userID': 1, 'date': Date.now(), 'hoursSlept': 6, 'sleepQuality': 3}
+  updateData(newData)
+}
+
+function postHydrationData(event) {
   event.preventDefault()
   const newData = {'userID': 1, 'date': Date.now(), 'hoursSlept': 6, 'sleepQuality': 3}
   updateData(newData)
