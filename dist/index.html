@@ -81,16 +81,21 @@
         <section class="grid-item nine">
           <h2 id="userInput-text">Add New Activity</h2>
           <div class="userInput-placement">
-            <input type="" id="userSleepInput">
-            <label class="userSleepInputLabel"></label>
-            <input type="" id="userHydrationInput">
-            <label class="userHydrationInputLabel"></label>
-            <input type="" id="userMinsActiveInput">
-            <label class="userMinsActiveInputLabel"></label>
-            <input type="" id="userStepsInput">
-            <label class="userStepsInputLabel"></label>
-            <input type="" id="userFlightsInput">
-            <label class="userFlightsInputLabel"></label>
+            <label for="hoursSleptInput" style="font-size: 10px;" class="userSleepInputLabel">Hours of Sleep</label>
+            <input required type="number" id="hoursSleptInput" placeholder="Example (hours): 8">
+            <label for="qualitySleepInput" style="font-size: 10px;" class="userSleepInputLabel">Sleep Quality</label>
+            <input type="number" id="qualitySleepInput" placeholder="Example (1-5): 4.5">
+            <label for="userHydrationInput" style="font-size: 10px;" class="userHydrationInputLabel">Hydration</label>
+            <input type="number" id="userHydrationInput" placeholder="Example (oz): 76">
+            <label for="userMinsActiveInput" style="font-size: 10px;" class="userMinsActiveInputLabel">Minutes Active</label>
+            <input type="number" id="userMinsActiveInput" placeholder="Example (mins): 72">
+            <label for="userStepsInput" style="font-size: 10px;" class="userStepsInputLabel">Daily Steps</label>
+            <input type="number" id="userStepsInput" placeholder="Example (steps): 4532">
+            <label for="userFlightsInput" style="font-size: 10px;" class="userFlightsInputLabel">Flights of Stairs</label>
+            <input type="number" id="userFlightsInput" placeholder="Example (flights): 29">
+            <button id="userInfoSubmitButton">
+              submit
+            </button>
           </div>
         </section>
       </section>
