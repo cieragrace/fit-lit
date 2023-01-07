@@ -18,9 +18,29 @@ let allUsersSteps = document.querySelector("#allUsersSteps")
 let allUsersFlights = document.querySelector("#allUsersFlights")
 let allUsersMins = document.querySelector("#allUsersMins")
 let milesWalked = document.querySelector("#milesWalked")
+let hoursSleptInput = document.querySelector("#hoursSleptInput")
+let qualitySleepInput = document.querySelector("#qualitySleepInput")
+let userHydrationInput = document.querySelector("#userHydrationInput")
+let userMinsActiveInput = document.querySelector("#userMinsActiveInput")
+let userStepsInput = document.querySelector("#userStepsInput")
+let userFlightsInput = document.querySelector("#userFlightsInput")
+let userInfoSubmitButton = document.querySelector("#userInfoSubmitButton")
+
+function submitUserData() {
+  console.log(hoursSleptInput.value)
+  if (test()) {
+  if (hoursSleptInput.value > -1 && qualitySleepInput > -1 && userHydrationInput > -1 && userMinsActiveInput > -1 && userStepsInput > -1 && userFlightsInput > -1) {
+    userInfoSubmitButton.disabled = true
+  }}
+}
 
 // Event Listeners
 window.addEventListener('load', getAllData)
+userInfoSubmitButton.addEventListener('click', submitUserData)
+hoursSleptInput.addEventListener('input', test)
+function test(){
+  return true
+}
 
 //Event Handlers
 function getAllData() {
@@ -47,6 +67,8 @@ function updateData(newData) {
   .then(data => console.log('data', data))
   .catch(error => console.log(error)) 
 }
+
+
 
 function displayUserInfo() {
   console.log(currentUser.activityData)
