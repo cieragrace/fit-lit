@@ -18,6 +18,9 @@ let allUsersSteps = document.querySelector("#allUsersSteps")
 let allUsersFlights = document.querySelector("#allUsersFlights")
 let allUsersMins = document.querySelector("#allUsersMins")
 let milesWalked = document.querySelector("#milesWalked")
+let weeklyActiveMins = document.querySelector("#minsActive-h2")
+let weeklyUserSteps = document.querySelector("#weeklySteps-h2")
+let weeklyUserFlights = document.querySelector("#weeklyFlights-h2")
 
 // Event Listeners
 window.addEventListener('load', getAllData)
@@ -99,6 +102,8 @@ function displayInfo(date, data, property) {
     goal = 5
   } else if (property === 'hoursSlept') {
     goal = 12
+  } else if (property === 'flightsOfStairs') {
+    goal = 100
   }
   return [dailyInfo, goal - dailyInfo]
 }
@@ -117,6 +122,10 @@ function getUserDailyActivityInfo(date, data, property) {
    currentUser.getInfoByDay(date, data, property)
 }
 
+function displayWeeklyActivity(info, property, container) {
+  container.innerText += `${currentUser.getWeeklyActiveMinutes(info, property)}`
+}
+
 
 function loadPage() {
   getUser(sleep, hydration)
@@ -124,6 +133,11 @@ function loadPage() {
   displayOtherUsersInfo()
   displayMilesWalked()
   displayWelcomeName()
+  displayWeeklyActivity("activityData", 'minutesActive', weeklyActiveMins)
+  displayWeeklyActivity("activityData", 'numSteps', weeklyUserSteps)
+  displayWeeklyActivity("activityData", 'flightsOfStairs', weeklyUserFlights)
+  currentUser.getWeeklyInfo("activityData", "flightsOfStairs")
+  currentUser.getWeeklyInfo("activityData", "numSteps")
   loadCharts(displayStepGoal(),
     displayInfo('2019/06/15', 'hydrationData', 'numOunces'),
     displayInfo('2019/06/15', 'sleepData', 'hoursSlept'),
@@ -131,5 +145,7 @@ function loadPage() {
     displayLast7DaysInfo('sleepData', 'hoursSlept'),
     displayLast7DaysInfo('sleepData', 'sleepQuality'),
     displayLast7DaysInfo('hydrationData', 'numOunces'),
-    displayAllTimeSleepData())
+    displayAllTimeSleepData(),
+    displayInfo('2019/06/15', 'activityData', 'flightsOfStairs')
+    )
 }
