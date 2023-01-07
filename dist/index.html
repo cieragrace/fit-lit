@@ -13,13 +13,12 @@
     <main>
       <section class="grid-container">
         <section class="grid-item zero">
+          <h2 class="daily-sleep-title">Daily Sleep</h2>
           <section class="daily-sleep">
             <div class="daily-sleep-container">
-              <h2 id="sleep-text"> Daily Sleep</h2>
               <canvas id="dailySleep"></canvas>
             </div>
             <div class="daily-sleep-quality-container">
-              <h2 id="quality-text"> Sleep Quality</h2>
               <canvas id="dailySleepQuality"></canvas>
             </div>
           </section>
@@ -63,13 +62,21 @@
           </div>
         </section>
         <section class="grid-item eight">
-          <h2 id="weeklyActivityText">Weekly Activity</h2>
-          <div class="weeklyActivity-placement">
-            <canvas id="weeklySteps"></canvas>
-            <canvas id="weeklyFlights"></canvas>
-            <canvas id="weeklyMins"></canvas>
-          </div>
-          <p>Active Minutes This Week: </p>
+          <h2 id="weeklyActivityText">Weekly</h2>
+          <section class="weeklyActivity-placement">
+            <div class="a">
+              <h3>Steps</h3>
+              <h2 id="weeklySteps-h2"></h2>
+            </div>
+            <div class="a">
+              <h3>Flights</h3>
+              <h2 id="weeklyFlights-h2"></h2>
+            </div>
+            <div class="a mins-active">
+              <h3>Mins Active</h3>
+              <h2 id="minsActive-h2"></h2>
+            </div>
+          </section>
         </section>
         <section class="grid-item nine">
           <h2 id="userInput-text">Add New Activity</h2>

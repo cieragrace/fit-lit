@@ -146,6 +146,25 @@ function allTimeSleepQuality(allTimeSleep) {
   })
 }
 
+function dailyFlightsClimbedChart(yValues) {
+  new Chart('dailyFlights', {
+    type: "doughnut",
+    data: {
+      labels: ["Flights of Stairs Climbed Today"],
+      datasets: [{
+        backgroundColor: barColors,
+        data: yValues
+      }]
+    },
+    options: {
+      title: {
+        display: true,
+        text: "Flights Today"
+      }
+    }
+  })
+}
+
 function loadCharts(
   stepYValues,
   dailyH2OYValues,
@@ -154,7 +173,8 @@ function loadCharts(
   userSleepHistory,
   userQualityHistory,
   hydrationByDay,
-  allTimeSleep) {
+  allTimeSleep,
+  flightsYValues) {
   makeStepCharts(stepYValues)
   makeDailyH20Charts(dailyH2OYValues)
   dailySleepChart(sleepYValues)
@@ -162,6 +182,7 @@ function loadCharts(
   sleepHistoryBarGraph(userSleepHistory, userQualityHistory)
   hydrationBarGraph(hydrationByDay)
   allTimeSleepQuality(allTimeSleep)
+  dailyFlightsClimbedChart(flightsYValues)
 }
 
 export default loadCharts;

@@ -25,22 +25,14 @@ let userMinsActiveInput = document.querySelector("#userMinsActiveInput")
 let userStepsInput = document.querySelector("#userStepsInput")
 let userFlightsInput = document.querySelector("#userFlightsInput")
 let userInfoSubmitButton = document.querySelector("#userInfoSubmitButton")
+let weeklyActiveMins = document.querySelector("#minsActive-h2")
+let weeklyUserSteps = document.querySelector("#weeklySteps-h2")
+let weeklyUserFlights = document.querySelector("#weeklyFlights-h2")
 
-function submitUserData() {
-  console.log(hoursSleptInput.value)
-  if (test()) {
-  if (hoursSleptInput.value > -1 && qualitySleepInput > -1 && userHydrationInput > -1 && userMinsActiveInput > -1 && userStepsInput > -1 && userFlightsInput > -1) {
-    userInfoSubmitButton.disabled = true
-  }}
-}
 
 // Event Listeners
 window.addEventListener('load', getAllData)
 userInfoSubmitButton.addEventListener('click', submitUserData)
-hoursSleptInput.addEventListener('input', test)
-function test(){
-  return true
-}
 
 //Event Handlers
 function getAllData() {
@@ -121,6 +113,8 @@ function displayInfo(date, data, property) {
     goal = 5
   } else if (property === 'hoursSlept') {
     goal = 12
+  } else if (property === 'flightsOfStairs') {
+    goal = 100
   }
   return [dailyInfo, goal - dailyInfo]
 }
@@ -139,6 +133,10 @@ function getUserDailyActivityInfo(date, data, property) {
    currentUser.getInfoByDay(date, data, property)
 }
 
+function displayWeeklyActivity(info, property, container) {
+  container.innerText += `${currentUser.getWeeklyActiveMinutes(info, property)}`
+}
+
 
 function loadPage() {
   getUser(sleep, hydration)
@@ -146,6 +144,11 @@ function loadPage() {
   displayOtherUsersInfo()
   displayMilesWalked()
   displayWelcomeName()
+  displayWeeklyActivity("activityData", 'minutesActive', weeklyActiveMins)
+  displayWeeklyActivity("activityData", 'numSteps', weeklyUserSteps)
+  displayWeeklyActivity("activityData", 'flightsOfStairs', weeklyUserFlights)
+  currentUser.getWeeklyInfo("activityData", "flightsOfStairs")
+  currentUser.getWeeklyInfo("activityData", "numSteps")
   loadCharts(displayStepGoal(),
     displayInfo('2019/06/15', 'hydrationData', 'numOunces'),
     displayInfo('2019/06/15', 'sleepData', 'hoursSlept'),
@@ -153,5 +156,7 @@ function loadPage() {
     displayLast7DaysInfo('sleepData', 'hoursSlept'),
     displayLast7DaysInfo('sleepData', 'sleepQuality'),
     displayLast7DaysInfo('hydrationData', 'numOunces'),
-    displayAllTimeSleepData())
+    displayAllTimeSleepData(),
+    displayInfo('2019/06/15', 'activityData', 'flightsOfStairs')
+    )
 }
