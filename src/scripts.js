@@ -1,5 +1,5 @@
 import './css/styles.css'
-import { getAPIData, updateActivityData, updateHydrationData, updateSleepData } from './apiCalls'
+import { getAPIData, updateAPIData } from './apiCalls'
 import User from '../src/User'
 import UserRepository from './UserRepository'
 import loadCharts from './charts'
@@ -53,14 +53,14 @@ function getAllData() {
     .catch(err => console.log('To err is human', err))
 }
 
-function updateData(newData) {
-Promise.resolve(updateSleepData(newData))
-Promise.resolve(updateActivityData(newData))
-Promise.resolve(updateHydrationData(newData))
-  .then(data => console.log(data))
-  // .then(data => console.log('data', data))
-  .catch(error => console.log('POST error', error)) 
-}
+// function updateData(newData) {
+// Promise.resolve(updateSleepData(newData))
+// Promise.resolve(updateActivityData(newData))
+// Promise.resolve(updateHydrationData(newData))
+//   .then(data => console.log(data))
+//   // .then(data => console.log('data', data))
+//   .catch(error => console.log('POST error', error)) 
+// }
 
 function displayUserInfo() {
   console.log(currentUser.activityData)
@@ -142,22 +142,19 @@ function enableSubmitButton() {
   }
 
 function postSleepData() {
-  // event.preventDefault()
   const newData = {'userID': currentUser.userData.id, 'date': dayjs(new Date()).format('DD/MM/YYYY'), 'hoursSlept': currentUser.sleepData.sleepData.hoursSlept, 'sleepQuality': currentUser.sleepData.sleepData.sleepQuality}
-  updateData(newData)
+  updateAPIData(newData, 'sleep')
 }
 
 function postActivityData() {
-  // event.preventDefault()
   const newData = {'userID': currentUser.userData.id, 'date': dayjs(new Date()).format('DD/MM/YYYY'), 'flightsOfStairs': currentUser.activityData.activityData.flightsOfStairs, 
   'minutesActive': currentUser.activityData.activityData.minutesActive, 'numSteps': currentUser.activityData.activityData.numSteps}
-  updateData(newData) 
+  updateAPIData(newData, 'activity') 
 }
 
 function postHydrationData() {
-  // event.preventDefault()
   const newData = {'userID': currentUser.userData.id, 'date': dayjs(new Date()).format('DD/MM/YYYY'), 'numOunces': currentUser.hydrationData.hydrationData.numOunces}
-  updateData(newData)
+  updateAPIData(newData, 'hydration')
 }
  
 function loadPage() {
