@@ -1,8 +1,9 @@
 import './css/styles.css'
-import { getAPIData } from './apiCalls'
+import { getAPIData, updateAPIData } from './apiCalls'
 import User from '../src/User'
 import UserRepository from './UserRepository'
 import loadCharts from './charts'
+import * as dayjs from 'dayjs'
 
 // Global Variables
 let users
@@ -32,7 +33,7 @@ let weeklyUserFlights = document.querySelector("#weeklyFlights-h2")
 
 // Event Listeners
 window.addEventListener('load', getAllData)
-userInfoSubmitButton.addEventListener('click', submitUserData)
+userInfoSubmitButton.addEventListener('click', handleSubmit)
 
 //Event Handlers
 function getAllData() {
@@ -46,21 +47,6 @@ function getAllData() {
     })
     .catch(err => console.log('To err is human', err))
 }
-
-function updateData(newData) {
-  fetch(`http://localhost:3001/api/v1/${data}`, {
-    method: 'POST',
-    body: JSON.stringify({newData}), 
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  })
-  .then(response => response.json())
-  .then(data => console.log('data', data))
-  .catch(error => console.log(error)) 
-}
-
-
 
 function displayUserInfo() {
   console.log(currentUser.activityData)
@@ -129,21 +115,69 @@ function displayAllTimeSleepData() {
   return [currentUser.getUserOverallAvgInfo('sleepQuality'), currentUser.getUserOverallAvgInfo('hoursSlept')]
 }
 
-function getUserDailyActivityInfo(date, data, property) {
-   currentUser.getInfoByDay(date, data, property)
-}
-
 function displayWeeklyActivity(info, property, container) {
   container.innerText += `${currentUser.getWeeklyActiveMinutes(info, property)}`
 }
 
+function enableSubmitButton() {
+  if (hoursSleptInput.value || qualitySleepInput.value || userHydrationInput.value || userMinsActiveInput.value || userStepsInput.value || userFlightsInput.value ) {
+    userInfoSubmitButton.disabled = false
+  } else {
+    userInfoSubmitButton.disabled = true
+  }    
+}
 
+function handleSubmit(event) {
+  event.preventDefault()
+  postSleepData()
+  postActivityData()
+  postHydrationData()
+  console.log(currentUser)
+}
+
+function postSleepData() {
+  const hoursSlept = hoursSleptInput.value
+  const sleepQuality = qualitySleepInput.value
+  const newData = {
+    'userID': currentUser.userData.id, 
+    'date': dayjs(new Date()).format('DD/MM/YYYY'), 
+    'hoursSlept': hoursSlept,
+    'sleepQuality': sleepQuality,
+  }
+  updateAPIData(newData, 'sleep')
+}
+
+function postActivityData() {
+  const flightsOfStairs = userFlightsInput.value
+  const minutesActive = userMinsActiveInput.value
+  const numSteps = userStepsInput.value
+  const newData = {
+    'userID': currentUser.userData.id, 
+    'date': dayjs(new Date()).format('DD/MM/YYYY'), 
+    'flightsOfStairs': flightsOfStairs,
+    'minutesActive': minutesActive, 
+    'numSteps': numSteps,
+  }
+  updateAPIData(newData, 'activity') 
+}
+
+function postHydrationData() {
+  const numOunces = userHydrationInput.value
+  const newData = {
+    'userID': currentUser.userData.id, 
+    'date': dayjs(new Date()).format('DD/MM/YYYY'), 
+    'numOunces': numOunces
+  }
+  updateAPIData(newData, 'hydration')
+}
+ 
 function loadPage() {
   getUser(sleep, hydration)
   displayUserInfo()
   displayOtherUsersInfo()
   displayMilesWalked()
   displayWelcomeName()
+  // enableSubmitButton()
   displayWeeklyActivity("activityData", 'minutesActive', weeklyActiveMins)
   displayWeeklyActivity("activityData", 'numSteps', weeklyUserSteps)
   displayWeeklyActivity("activityData", 'flightsOfStairs', weeklyUserFlights)
