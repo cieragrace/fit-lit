@@ -1,5 +1,5 @@
 import './css/styles.css'
-import { getAPIData, updateSleepData } from './apiCalls'
+import { getAPIData, updateActivityData, updateHydrationData, updateSleepData } from './apiCalls'
 import User from '../src/User'
 import UserRepository from './UserRepository'
 import loadCharts from './charts'
@@ -32,7 +32,9 @@ let weeklyUserFlights = document.querySelector("#weeklyFlights-h2")
 
 // Event Listeners
 window.addEventListener('load', getAllData)
-userInfoSubmitButton.addEventListener('click', submitUserData)
+userInfoSubmitButton.addEventListener('click', function() {
+  postSleepData()
+})
 
 //Event Handlers
 function getAllData() {
@@ -49,14 +51,8 @@ function getAllData() {
 
 function updateData(newData) {
 Promise.resolve(updateSleepData(newData))
-
-  // fetch(`http://localhost:3001/api/v1/sleep`, {
-  //   method: 'POST',
-  //   body: JSON.stringify(newData), 
-  //   headers: {
-  //     'Content-Type': 'application/json'
-  //   }
-  // })
+Promise.resolve(updateActivityData(newData))
+Promise.resolve(updateHydrationData(newData))
   .then(data => console.log(data))
   // .then(data => console.log('data', data))
   .catch(error => console.log('POST error', error)) 
@@ -141,7 +137,14 @@ function enableSubmitButton() {
     }    
   }
 
-function submitUserData(event) {
+function postSleepData(event) {
+  event.preventDefault()
+  const newData = {'userID': 1, 'date': Date.now(), 'hoursSlept': 6, 'sleepQuality': 3}
+  updateData(newData)
+}
+
+
+function postSData(event) {
   event.preventDefault()
   const newData = {'userID': 1, 'date': Date.now(), 'hoursSlept': 6, 'sleepQuality': 3}
   updateData(newData)

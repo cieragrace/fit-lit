@@ -16,4 +16,28 @@ function updateSleepData(newData) {
   return results
 }
 
-export { getAPIData, updateSleepData }
+function updateActivityData(newData) {
+  const results =   fetch(`http://localhost:3001/api/v1/activity`, {
+    method: 'POST',
+    body: JSON.stringify(newData), 
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  .then((res) => res.json())
+  return results
+}
+
+function updateHydrationData(newData) {
+  const results =   fetch(`http://localhost:3001/api/v1/hydration`, {
+    method: 'POST',
+    body: JSON.stringify(newData), 
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  .then((res) => res.json())
+  return results
+}
+
+export { getAPIData, updateSleepData, updateActivityData, updateHydrationData }
