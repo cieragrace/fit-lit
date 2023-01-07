@@ -152,6 +152,12 @@ canvas {
 
 .a {
   margin-left: 110px;
+  margin-top: 50px;
+}
+
+.mins-active {
+  margin-right: 80px;
+  width: 115px;
 }
 
 .weeklyMinsText {
