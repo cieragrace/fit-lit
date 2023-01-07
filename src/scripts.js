@@ -48,15 +48,6 @@ function getAllData() {
     .catch(err => console.log('To err is human', err))
 }
 
-// function updateData(newData) {
-// Promise.resolve(updateSleepData(newData))
-// Promise.resolve(updateActivityData(newData))
-// Promise.resolve(updateHydrationData(newData))
-//   .then(data => console.log(data))
-//   // .then(data => console.log('data', data))
-//   .catch(error => console.log('POST error', error)) 
-// }
-
 function displayUserInfo() {
   console.log(currentUser.activityData)
   userInfoList.innerHTML += `<li>${currentUser.userData.name}</li>
@@ -140,7 +131,7 @@ function handleSubmit(event) {
   event.preventDefault()
   postSleepData()
   postActivityData()
-  // postHydrationData()
+  postHydrationData()
   console.log(currentUser)
 }
 
@@ -175,7 +166,7 @@ function postHydrationData() {
   const newData = {
     'userID': currentUser.userData.id, 
     'date': dayjs(new Date()).format('DD/MM/YYYY'), 
-    'numOunces': currentUser.hydrationData.hydrationData.numOunces
+    'numOunces': numOunces
   }
   updateAPIData(newData, 'hydration')
 }
