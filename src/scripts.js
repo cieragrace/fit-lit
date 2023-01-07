@@ -102,6 +102,8 @@ function displayInfo(date, data, property) {
     goal = 5
   } else if (property === 'hoursSlept') {
     goal = 12
+  } else if (property === 'flightsOfStairs') {
+    goal = 100
   }
   return [dailyInfo, goal - dailyInfo]
 }
@@ -121,10 +123,7 @@ function getUserDailyActivityInfo(date, data, property) {
 }
 
 function displayWeeklyActivity(info, property, container) {
-  console.log('container: ', container)
   container.innerText += `${currentUser.getWeeklyActiveMinutes(info, property)}`
-  // weeklyUserSteps.innerText += currentUser.getWeeklyInfo(info, property)
-  // weeklyUserFlights.innerText += currentUser.getWeeklyInfo(info, property)
 }
 
 
@@ -137,8 +136,8 @@ function loadPage() {
   displayWeeklyActivity("activityData", 'minutesActive', weeklyActiveMins)
   displayWeeklyActivity("activityData", 'numSteps', weeklyUserSteps)
   displayWeeklyActivity("activityData", 'flightsOfStairs', weeklyUserFlights)
-  getWeeklyInfo("activityData", "flightsOfStairs")
-  getWeeklyInfo("activityData", "numSteps")
+  currentUser.getWeeklyInfo("activityData", "flightsOfStairs")
+  currentUser.getWeeklyInfo("activityData", "numSteps")
   loadCharts(displayStepGoal(),
     displayInfo('2019/06/15', 'hydrationData', 'numOunces'),
     displayInfo('2019/06/15', 'sleepData', 'hoursSlept'),
@@ -146,5 +145,7 @@ function loadPage() {
     displayLast7DaysInfo('sleepData', 'hoursSlept'),
     displayLast7DaysInfo('sleepData', 'sleepQuality'),
     displayLast7DaysInfo('hydrationData', 'numOunces'),
-    displayAllTimeSleepData())
+    displayAllTimeSleepData(),
+    displayInfo('2019/06/15', 'activityData', 'flightsOfStairs')
+    )
 }
