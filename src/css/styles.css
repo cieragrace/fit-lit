@@ -79,6 +79,10 @@ canvas {
   flex-direction: row;
 }
 
+/* .daily-sleep-title {
+
+} */
+
 .zero {
   grid-column: 2 / 3;
   max-height: 275px;
@@ -161,8 +165,10 @@ canvas {
   max-width: 275px;
 }
 
-#dailySleep {
-  width: 125px;
+#dailySleep, #dailySleepQuality {
+ max-width: 125px;
+ max-height: 125px;
+ margin-top: 50px;
 }
 
 #stepGoal {
@@ -174,10 +180,6 @@ canvas {
   width: 175px;
   max-height: 175px;
   max-width: 175px;
-}
-
-#dailySleepQuality {
-  width: 125px;
 }
 
 #sleepHistory {
@@ -197,6 +199,12 @@ canvas {
   margin-top: 40px;
   width: 150px;
   max-width: 275px;
+}
+
+#dailyFlights {
+  width: 175px;
+  max-height: 175px;
+  max-width: 175px;
 }
 
 @media (max-width: 468px) {
