@@ -34,6 +34,7 @@ let weeklyUserFlights = document.querySelector("#weeklyFlights-h2")
 window.addEventListener('load', getAllData)
 userInfoSubmitButton.addEventListener('click', function() {
   postSleepData()
+  postActivityData()
 })
 
 //Event Handlers
@@ -143,8 +144,7 @@ function postSleepData(event) {
   updateData(newData)
 }
 
-
-function postSData(event) {
+function postActivityData(event) {
   event.preventDefault()
   const newData = {'userID': 1, 'date': Date.now(), 'hoursSlept': 6, 'sleepQuality': 3}
   updateData(newData)
