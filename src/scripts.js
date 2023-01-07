@@ -141,19 +141,20 @@ function enableSubmitButton() {
 
 function postSleepData(event) {
   event.preventDefault()
-  const newData = {'userID': 1, 'date': Date.now(), 'hoursSlept': 6, 'sleepQuality': 3}
+  const newData = {'userID': currentUser.id, 'date': Date.now(), 'hoursSlept': currentUser.sleepData.sleepData.hoursSlept, 'sleepQuality': currentUser.sleepData.sleepData.sleepQuality}
   updateData(newData)
 }
 
 function postActivityData(event) {
   event.preventDefault()
-  const newData = {'userID': 1, 'date': Date.now(), 'hoursSlept': 6, 'sleepQuality': 3}
-  updateData(newData)
+  const newData = {'userID': currentUser.id, 'date': Date.now(), 'flightsOfStairs': currentUser.activityData.activityData.flightsOfStairs, 
+  'minutesActive': currentUser.activityData.activityData.minutesActive, 'numSteps': currentUser.activityData.activityData.numSteps}
+  updateData(newData) 
 }
 
 function postHydrationData(event) {
   event.preventDefault()
-  const newData = {'userID': 1, 'date': Date.now(), 'hoursSlept': 6, 'sleepQuality': 3}
+  const newData = {'userID': currentUser.id, 'date': Date.now(), 'numOunces': currentUser.activityData.activityData.numOunces}
   updateData(newData)
 }
  
