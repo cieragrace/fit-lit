@@ -3,6 +3,7 @@ import { getAPIData, updateActivityData, updateHydrationData, updateSleepData } 
 import User from '../src/User'
 import UserRepository from './UserRepository'
 import loadCharts from './charts'
+import * as dayjs from 'dayjs'
 
 // Global Variables
 let users
@@ -32,7 +33,8 @@ let weeklyUserFlights = document.querySelector("#weeklyFlights-h2")
 
 // Event Listeners
 window.addEventListener('load', getAllData)
-userInfoSubmitButton.addEventListener('click', function() {
+userInfoSubmitButton.addEventListener('click', function(event) {
+  event.preventDefault()
   postSleepData()
   postActivityData()
   postHydrationData()
@@ -139,22 +141,22 @@ function enableSubmitButton() {
     }    
   }
 
-function postSleepData(event) {
-  event.preventDefault()
-  const newData = {'userID': currentUser.id, 'date': Date.now(), 'hoursSlept': currentUser.sleepData.sleepData.hoursSlept, 'sleepQuality': currentUser.sleepData.sleepData.sleepQuality}
+function postSleepData() {
+  // event.preventDefault()
+  const newData = {'userID': currentUser.userData.id, 'date': dayjs(new Date()).format('DD/MM/YYYY'), 'hoursSlept': currentUser.sleepData.sleepData.hoursSlept, 'sleepQuality': currentUser.sleepData.sleepData.sleepQuality}
   updateData(newData)
 }
 
-function postActivityData(event) {
-  event.preventDefault()
-  const newData = {'userID': currentUser.id, 'date': Date.now(), 'flightsOfStairs': currentUser.activityData.activityData.flightsOfStairs, 
+function postActivityData() {
+  // event.preventDefault()
+  const newData = {'userID': currentUser.userData.id, 'date': dayjs(new Date()).format('DD/MM/YYYY'), 'flightsOfStairs': currentUser.activityData.activityData.flightsOfStairs, 
   'minutesActive': currentUser.activityData.activityData.minutesActive, 'numSteps': currentUser.activityData.activityData.numSteps}
   updateData(newData) 
 }
 
-function postHydrationData(event) {
-  event.preventDefault()
-  const newData = {'userID': currentUser.id, 'date': Date.now(), 'numOunces': currentUser.activityData.activityData.numOunces}
+function postHydrationData() {
+  // event.preventDefault()
+  const newData = {'userID': currentUser.userData.id, 'date': dayjs(new Date()).format('DD/MM/YYYY'), 'numOunces': currentUser.hydrationData.hydrationData.numOunces}
   updateData(newData)
 }
  
