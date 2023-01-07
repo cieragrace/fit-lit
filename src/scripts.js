@@ -129,15 +129,22 @@ function displayAllTimeSleepData() {
   return [currentUser.getUserOverallAvgInfo('sleepQuality'), currentUser.getUserOverallAvgInfo('hoursSlept')]
 }
 
-function getUserDailyActivityInfo(date, data, property) {
-   currentUser.getInfoByDay(date, data, property)
-}
-
 function displayWeeklyActivity(info, property, container) {
   container.innerText += `${currentUser.getWeeklyActiveMinutes(info, property)}`
 }
 
+function enableSubmitButton() {
+  if (hoursSleptInput.value || qualitySleepInput.value || userHydrationInput.value || userMinsActiveInput.value || userStepsInput.value || userFlightsInput.value ) {
+    userInfoSubmitButton.disabled = false
+    } else {
+      userInfoSubmitButton.disabled = true
+    }    
+  }
 
+function submitUserData() {
+  
+}
+ 
 function loadPage() {
   getUser(sleep, hydration)
   displayUserInfo()
