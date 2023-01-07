@@ -1,5 +1,5 @@
 import './css/styles.css'
-import { getAPIData } from './apiCalls'
+import { getAPIData, updateSleepData } from './apiCalls'
 import User from '../src/User'
 import UserRepository from './UserRepository'
 import loadCharts from './charts'
@@ -48,19 +48,19 @@ function getAllData() {
 }
 
 function updateData(newData) {
-  fetch(`http://localhost:3001/api/v1/${data}`, {
-    method: 'POST',
-    body: JSON.stringify({newData}), 
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  })
-  .then(response => response.json())
-  .then(data => console.log('data', data))
-  .catch(error => console.log(error)) 
+Promise.resolve(updateSleepData(newData))
+
+  // fetch(`http://localhost:3001/api/v1/sleep`, {
+  //   method: 'POST',
+  //   body: JSON.stringify(newData), 
+  //   headers: {
+  //     'Content-Type': 'application/json'
+  //   }
+  // })
+  .then(data => console.log(data))
+  // .then(data => console.log('data', data))
+  .catch(error => console.log('POST error', error)) 
 }
-
-
 
 function displayUserInfo() {
   console.log(currentUser.activityData)
@@ -141,8 +141,10 @@ function enableSubmitButton() {
     }    
   }
 
-function submitUserData() {
-  
+function submitUserData(event) {
+  event.preventDefault()
+  const newData = {'userID': 1, 'date': Date.now(), 'hoursSlept': 6, 'sleepQuality': 3}
+  updateData(newData)
 }
  
 function loadPage() {
@@ -151,6 +153,7 @@ function loadPage() {
   displayOtherUsersInfo()
   displayMilesWalked()
   displayWelcomeName()
+  // enableSubmitButton()
   displayWeeklyActivity("activityData", 'minutesActive', weeklyActiveMins)
   displayWeeklyActivity("activityData", 'numSteps', weeklyUserSteps)
   displayWeeklyActivity("activityData", 'flightsOfStairs', weeklyUserFlights)
