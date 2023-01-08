@@ -2,7 +2,7 @@
 
 ### Abstract:
 [//]: <> (Briefly describe what you built and its features. What problem is the app solving? How does this application solve that problem?)
-Here we built a fitness dashboard to display a random user's info. This includes their hydration, sleep, and step activity along with their personal info. We have used FETCH to pull user data from the internet, rather than having hard coded data. Our app is dyslexic and color blind friendly.
+Here we built a fitness dashboard to display a random user's info. This includes their hydration, sleep, and activity data, along with their personal info. Users can add new data to their information by using the form that's on the page. Our app is dyslexic and color blind friendly, and is fully tabable.
 
 ### Installation Instructions:
 1. Go to [this repository](https://github.com/cieragrace/fit-lit/) on Github
@@ -13,13 +13,14 @@ Here we built a fitness dashboard to display a random user's info. This includes
 6. Type "git clone" and paste the URL
 7. Open the repo in your text editor
 8. In your terminal, run "npm install", "npm start", then go to "http://localhost:8080/" in your browser
-9. Manipulate the application in the browser window
+9. You will also need to clone down the API server. Go to [the API repo](https://github.com/turingschool-examples/fitlit-api) and follow steps 3-8
+10. You can now manipulate the application in the browser window
 
 ### Preview of App:
-![ezgif com-gif-maker](https://user-images.githubusercontent.com/113863021/207166142-586f35e1-3652-48da-9099-2bc4dd8fc98d.gif)
+![FitLit Preview Image]()
 
 ### Context:
-We were given approximately 11 days to work on this project.  We spent about 55 hours from start to finish.  We are on Week 3 of Mod 2. 
+We were given approximately 11 days to work on parts 1 and 2 of this project.  We spent about 105 hours from start to finish.
 
 ### Contributors: 
 - Craig Weller: <br>
@@ -43,15 +44,25 @@ We were given approximately 11 days to work on this project.  We spent about 55 
 - Incorporate & iterate over arrays in order to filter what is being displayed
 - Craft code with clean style, using small functions that show trends toward DRYness and SRP
 - Work with an API along with fetch calls and promises
-- We worked with JavaScript, HTML, CSS, Git/GitHub workflow, API
+
+### Technologies Used
+- JavaScript
+- HTML
+- CSS
+- GitHub
+- GitHub Projects
+- Webpack
+- APIs
+- Chart.js
+- Day.js
 
 ### Wins + Challenges:
 
 #### Wins
-- We got through all 4 iterations
+- We got through all 5 iterations, and completed an extension by implementing Chart.js
 - We had good communication and maintained a positive work environment
-- We navigated working together and adapted to different team enironments (splitting off into pairs, working all together, etc...)
-
+- We navigated working together and adapted to different team environments (paired programming, mob coding, etc...)
+- We utilized help from our mentors and peers when we were unable to come up with a solution
 #### Challenges 
-- We utilised help from our mentors and peers when we were unable to come up with a solution
+- The POST requests were especially difficult to figure out. We didn't know how to add functionality for them, so we had to bring in some outside help.
 - We all have different schedules, and had to adjust to family/friends/health
