@@ -29,6 +29,7 @@ let userInfoSubmitButton = document.querySelector("#userInfoSubmitButton")
 let weeklyActiveMins = document.querySelector("#minsActive-h2")
 let weeklyUserSteps = document.querySelector("#weeklySteps-h2")
 let weeklyUserFlights = document.querySelector("#weeklyFlights-h2")
+let errorBox = document.querySelector("#errorBox")
 
 
 // Event Listeners
@@ -138,37 +139,52 @@ function handleSubmit(event) {
 function postSleepData() {
   const hoursSlept = hoursSleptInput.value
   const sleepQuality = qualitySleepInput.value
-  const newData = {
-    'userID': currentUser.userData.id, 
-    'date': dayjs(new Date()).format('DD/MM/YYYY'), 
-    'hoursSlept': hoursSlept,
-    'sleepQuality': sleepQuality,
+  if (hoursSlept && sleepQuality) {
+    const newData = {
+      'userID': currentUser.userData.id, 
+      'date': dayjs(new Date()).format('DD/MM/YYYY'), 
+      'hoursSlept': hoursSlept,
+      'sleepQuality': sleepQuality,
+    }
+    errorBox.classList.add("hidden")
+    updateAPIData(newData, 'sleep')
+  } else {
+    errorBox.classList.remove("hidden")
   }
-  updateAPIData(newData, 'sleep')
 }
 
 function postActivityData() {
   const flightsOfStairs = userFlightsInput.value
   const minutesActive = userMinsActiveInput.value
   const numSteps = userStepsInput.value
-  const newData = {
-    'userID': currentUser.userData.id, 
-    'date': dayjs(new Date()).format('DD/MM/YYYY'), 
-    'flightsOfStairs': flightsOfStairs,
-    'minutesActive': minutesActive, 
-    'numSteps': numSteps,
+  if (flightsOfStairs && minutesActive && numSteps) {
+    const newData = {
+      'userID': currentUser.userData.id, 
+      'date': dayjs(new Date()).format('DD/MM/YYYY'), 
+      'flightsOfStairs': flightsOfStairs,
+      'minutesActive': minutesActive, 
+      'numSteps': numSteps,
+    }
+    errorBox.classList.add("hidden")
+    updateAPIData(newData, 'activity') 
+  } else {
+    errorBox.classList.remove("hidden")
   }
-  updateAPIData(newData, 'activity') 
 }
 
 function postHydrationData() {
   const numOunces = userHydrationInput.value
-  const newData = {
-    'userID': currentUser.userData.id, 
-    'date': dayjs(new Date()).format('DD/MM/YYYY'), 
-    'numOunces': numOunces
+  if (numOunces) {
+    const newData = {
+      'userID': currentUser.userData.id, 
+      'date': dayjs(new Date()).format('DD/MM/YYYY'), 
+      'numOunces': numOunces
+    }
+    errorBox.classList.add("hidden")
+    updateAPIData(newData, 'hydration')
+  } else {
+    errorBox.classList.remove("hidden")
   }
-  updateAPIData(newData, 'hydration')
 }
  
 function loadPage() {

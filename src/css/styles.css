@@ -140,6 +140,11 @@ canvas {
   max-width: 275px;
 }
 
+.error {
+  border: 1px solid black;
+  color: red;
+}
+
 .eight {
   grid-column: 2 / 4;
   grid-row: 3;
@@ -217,6 +222,10 @@ canvas {
   width: 175px;
   max-height: 175px;
   max-width: 175px;
+}
+
+.hidden {
+  display: none;
 }
 
 @media (max-width: 468px) {
