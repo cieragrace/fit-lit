@@ -17,7 +17,8 @@ Here we built a fitness dashboard to display a random user's info. This includes
 10. You can now manipulate the application in the browser window
 
 ### Preview of App:
-![FitLit Preview Image]()
+![FitLit Preview Image](https://user-images.githubusercontent.com/107816053/211214027-8201c283-236b-4f23-8b71-044d6bd2e4f3.png)
+
 
 ### Context:
 We were given approximately 11 days to work on parts 1 and 2 of this project.  We spent about 105 hours from start to finish.
