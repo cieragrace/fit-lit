@@ -48,12 +48,23 @@
           <canvas id="weeklyHydration"></canvas>
         </section>
         <section class="grid-item six">
-          <h2 id="othersText">Other Users Daily Averages</h2>
-          <div class="other-users-placement">
-            <p id="allUsersSteps">Steps: </p>
-            <p id="allUsersFlights">Flights: </p>
-            <p id="allUsersMins">Active Mins: </p>
-          </div>
+          <h2 id="userInput-text">Add New Activity</h2>
+          <form class="userInput-placement">
+            <label for="hoursSleptInput" style="font-size: 10px;" class="userSleepInputLabel">Hours of Sleep</label>
+            <input required type="number" id="hoursSleptInput" placeholder="Example (hours): 8">
+            <label for="qualitySleepInput" style="font-size: 10px;" class="userSleepInputLabel">Sleep Quality</label>
+            <input type="number" id="qualitySleepInput" placeholder="Example (1-5): 4.5">
+            <label for="userHydrationInput" style="font-size: 10px;" class="userHydrationInputLabel">Hydration</label>
+            <input type="number" id="userHydrationInput" placeholder="Example (oz): 76">
+            <label for="userMinsActiveInput" style="font-size: 10px;" class="userMinsActiveInputLabel">Minutes Active</label>
+            <input type="number" id="userMinsActiveInput" placeholder="Example (mins): 72">
+            <label for="userStepsInput" style="font-size: 10px;" class="userStepsInputLabel">Daily Steps</label>
+            <input type="number" id="userStepsInput" placeholder="Example (steps): 4532">
+            <label for="userFlightsInput" style="font-size: 10px;" class="userFlightsInputLabel">Flights of Stairs</label>
+            <input type="number" id="userFlightsInput" placeholder="Example (flights): 29">
+            <input type="submit" value="SUBMIT" id="userInfoSubmitButton"/>
+            <p class="error hidden" id="errorBox" > Please Fill Out Required Fields </p>
+          </form>
         </section>
         <section class="grid-item seven">
           <h2 id="flightsText">Flights Climbed</h2>
@@ -79,22 +90,12 @@
           </section>
         </section>
         <section class="grid-item nine">
-          <h2 id="userInput-text">Add New Activity</h2>
-          <form class="userInput-placement">
-            <label for="hoursSleptInput" style="font-size: 10px;" class="userSleepInputLabel">Hours of Sleep</label>
-            <input required type="number" id="hoursSleptInput" placeholder="Example (hours): 8">
-            <label for="qualitySleepInput" style="font-size: 10px;" class="userSleepInputLabel">Sleep Quality</label>
-            <input type="number" id="qualitySleepInput" placeholder="Example (1-5): 4.5">
-            <label for="userHydrationInput" style="font-size: 10px;" class="userHydrationInputLabel">Hydration</label>
-            <input type="number" id="userHydrationInput" placeholder="Example (oz): 76">
-            <label for="userMinsActiveInput" style="font-size: 10px;" class="userMinsActiveInputLabel">Minutes Active</label>
-            <input type="number" id="userMinsActiveInput" placeholder="Example (mins): 72">
-            <label for="userStepsInput" style="font-size: 10px;" class="userStepsInputLabel">Daily Steps</label>
-            <input type="number" id="userStepsInput" placeholder="Example (steps): 4532">
-            <label for="userFlightsInput" style="font-size: 10px;" class="userFlightsInputLabel">Flights of Stairs</label>
-            <input type="number" id="userFlightsInput" placeholder="Example (flights): 29">
-            <input type="submit" value="SUBMIT" id="userInfoSubmitButton"/>
-          </form>
+          <h2 id="othersText">Other Users Daily Averages</h2>
+          <div class="other-users-placement">
+            <p id="allUsersSteps">Steps: </p>
+            <p id="allUsersFlights">Flights: </p>
+            <p id="allUsersMins">Active Mins: </p>
+          </div>
         </section>
       </section>
     </main>

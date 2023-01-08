@@ -66,7 +66,7 @@ ul {
 
 li {
   margin-top: 5px;
-  font-size: medium;
+  font-size: small;
 }
 
 canvas {
@@ -138,6 +138,11 @@ canvas {
   grid-row: 3;
   max-height:275px;
   max-width: 275px;
+}
+
+.error {
+  border: 1px solid black;
+  color: red;
 }
 
 .eight {
@@ -219,6 +224,10 @@ canvas {
   max-width: 175px;
 }
 
+.hidden {
+  display: none;
+}
+
 @media (max-width: 468px) {
   body,
   html {
@@ -270,6 +279,7 @@ canvas {
   li {
     margin-top: 5px;
     font-size: medium;
+    padding: 5px;
   }
 
   canvas {
