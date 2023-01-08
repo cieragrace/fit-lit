@@ -243,7 +243,10 @@ canvas {
   .grid-container {
     display: flex !important;
     flex-direction: column;
-    max-width: 468px;
+    justify-content: center;
+    max-width: 450px;
+    /* max-height: 100vh; */
+    max-height: 325px;
   }
 
   .grid-item {
@@ -255,11 +258,11 @@ canvas {
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: flex-start;
-    padding: 5px;
-    max-width: 450px;
+    /* justify-content: flex-start; */
+    /* padding: 5px; */
+    max-width: 440px;
     width: 430px;
-    margin-left: 5px;
+    /* margin-left: 5px; */
   }
 
   h1 {
@@ -323,6 +326,60 @@ canvas {
     order: 4;
   }
 
+
+.six {
+  order: 9;
+  max-height:325px;
+  max-width: 275px;
+}
+
+.seven {
+  order: 7;
+  max-height:275px;
+  max-width: 275px;
+}
+
+.error {
+  border: 1px solid black;
+  color: red;
+}
+
+.eight {
+  order: 8;
+  max-height:275px;
+  max-width: 825px;
+  display: flex;
+  flex-direction: column;
+}
+
+.weeklyActivity-placement {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  max-height: 300px;
+}
+
+.a {
+  margin-left: 110px;
+  margin-top: 50px;
+}
+
+.mins-active {
+  margin-right: 80px;
+  width: 115px;
+}
+
+.weeklyMinsText {
+  font-size: small;
+}
+
+.nine {
+  grid-column: 4;
+  grid-row: 3;
+  max-height:275px;
+  max-width: 275px;
+}
+
   #dailySleep {
     width: 175px;
   }
@@ -359,8 +416,8 @@ canvas {
     height: 175px;
     max-height: 200px;
     margin-top: 20px;
-    width: 400px;
-    max-width: 400px;
+    width: 175px;
+    max-width: 175px;
   }
 }
 
@@ -483,6 +540,60 @@ canvas {
       max-height: 275px;
     }
 
+    .six {
+      order: 9;
+      max-height:325px;
+      max-width: 275px;
+      margin-left: 40px;
+    }
+    
+    .seven {
+      order: 7;
+      max-height:275px;
+      max-width: 275px;
+      margin-left: 40px;
+    }
+    
+    .error {
+      border: 1px solid black;
+      color: red;
+    }
+    
+    .eight {
+      order: 8;
+      max-height:275px;
+      max-width: 825px;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .weeklyActivity-placement {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      max-height: 300px;
+    }
+    
+    .a {
+      margin-left: 110px;
+      margin-top: 50px;
+    }
+    
+    .mins-active {
+      margin-right: 80px;
+      width: 115px;
+    }
+    
+    .weeklyMinsText {
+      font-size: small;
+    }
+    
+    .nine {
+      grid-column: 4;
+      grid-row: 3;
+      max-height:275px;
+      max-width: 275px;
+    }
 
     #dailySleep {
       width: 175px;
