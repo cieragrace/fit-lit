@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <title>Fitlit</title>
+  </head>
+  <body>
+    <header>
+      <h1>Welcome,</h1>
+    </header>
+    <main>
+      <section class="grid-container">
+        <section class="grid-item zero">
+          <h2 class="daily-sleep-title">Daily Sleep</h2>
+          <section class="daily-sleep">
+            <div class="daily-sleep-container">
+              <canvas id="dailySleep"></canvas>
+            </div>
+            <div class="daily-sleep-quality-container">
+              <canvas id="dailySleepQuality"></canvas>
+            </div>
+          </section>
+        </section>
+        <section class="grid-item one">
+          <h2 id="step-text">Steps</h2>
+          <canvas id="stepGoal"></canvas>
+          <p id="milesWalked">Total Daily Miles: </p>
+        </section>
+        <section class="grid-item two">
+          <h2 id="infoText">Your Info</h2>
+          <ul id="userInfoList"></ul>
+        </section>
+        <section class="grid-item three">
+          <h2 id="sleepHistoryText">Sleep History</h2>
+          <div class="chart-placement">
+            <canvas id="sleepHistory"></canvas>
+            <canvas id="allTimeSleepHistory"></canvas>
+          </div>
+        </section>
+        <section class="grid-item four">
+          <h2 id="hydrationText"> H2O</h2>
+          <canvas id="dailyHydration"></canvas>
+        </section>
+        <section class="grid-item five">
+          <h2 id="weeklyHydrationText">Weekly Hydration</h2>
+          <canvas id="weeklyHydration"></canvas>
+        </section>
+        <section class="grid-item six">
+          <h2 id="userInput-text">Add New Activity</h2>
+          <form class="userInput-placement">
+            <label for="hoursSleptInput" style="font-size: 10px;" class="userSleepInputLabel">Hours of Sleep</label>
+            <input required type="number" id="hoursSleptInput" placeholder="Example (hours): 8">
+            <label for="qualitySleepInput" style="font-size: 10px;" class="userSleepInputLabel">Sleep Quality</label>
+            <input type="number" id="qualitySleepInput" placeholder="Example (1-5): 4.5">
+            <label for="userHydrationInput" style="font-size: 10px;" class="userHydrationInputLabel">Hydration</label>
+            <input type="number" id="userHydrationInput" placeholder="Example (oz): 76">
+            <label for="userMinsActiveInput" style="font-size: 10px;" class="userMinsActiveInputLabel">Minutes Active</label>
+            <input type="number" id="userMinsActiveInput" placeholder="Example (mins): 72">
+            <label for="userStepsInput" style="font-size: 10px;" class="userStepsInputLabel">Daily Steps</label>
+            <input type="number" id="userStepsInput" placeholder="Example (steps): 4532">
+            <label for="userFlightsInput" style="font-size: 10px;" class="userFlightsInputLabel">Flights of Stairs</label>
+            <input type="number" id="userFlightsInput" placeholder="Example (flights): 29">
+            <input type="submit" value="SUBMIT" id="userInfoSubmitButton"/>
+            <p class="error hidden" id="errorBox" > Please Fill Out Required Fields </p>
+          </form>
+        </section>
+        <section class="grid-item seven">
+          <h2 id="flightsText">Flights Climbed</h2>
+          <div class="flights-placement">
+            <canvas id="dailyFlights"></canvas>
+          </div>
+        </section>
+        <section class="grid-item eight">
+          <h2 id="weeklyActivityText">Weekly</h2>
+          <section class="weeklyActivity-placement">
+            <div class="a">
+              <h3>Steps</h3>
+              <h2 id="weeklySteps-h2"></h2>
+            </div>
+            <div class="a">
+              <h3>Flights</h3>
+              <h2 id="weeklyFlights-h2"></h2>
+            </div>
+            <div class="a mins-active">
+              <h3>Mins Active</h3>
+              <h2 id="minsActive-h2"></h2>
+            </div>
+          </section>
+        </section>
+        <section class="grid-item nine">
+          <h2 id="othersText">Other Users Daily Averages</h2>
+          <div class="other-users-placement">
+            <p id="allUsersSteps">Steps: </p>
+            <p id="allUsersFlights">Flights: </p>
+            <p id="allUsersMins">Active Mins: </p>
+          </div>
+        </section>
+      </section>
+    </main>
+    <script src="bundle.js"></script>
+  </body>
+</html>
