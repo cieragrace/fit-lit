@@ -4,7 +4,7 @@ html {
   background-image: linear-gradient(to bottom, lightblue 0%, skyblue 50%, navy 100%);
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
+  height: 100%;
   font-family: Verdana, Tahoma, sans-serif;
   margin: 1px;
   overflow: auto;
@@ -15,8 +15,8 @@ html {
   grid-template-columns: repeat(4, 1fr);
   gap: 30px;
   grid-template-rows: 1fr 1fr 1fr;
-  height: 80vh;
-  width: 100vw;
+  height: 80%;
+  width: 100%;
 }
 
 .grid-item {
